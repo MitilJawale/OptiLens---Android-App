@@ -8,6 +8,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //bullcrap
+        //Mihika - Naithik is chutiya
         // Mitil branch created
     }
 }
