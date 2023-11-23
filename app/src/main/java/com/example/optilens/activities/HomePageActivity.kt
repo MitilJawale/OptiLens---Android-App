@@ -1,6 +1,7 @@
 package com.example.optilens.activities
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
@@ -17,9 +18,13 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.optilens.R
 import com.example.optilens.fragments.HomeFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class HomePageActivity : AppCompatActivity() {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var btnLogout: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +33,21 @@ class HomePageActivity : AppCompatActivity() {
 
         // Find the Toolbar in your layout
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+        auth = Firebase.auth
         btnLogout = findViewById(R.id.btn_logout)
+        val currentUser = auth.currentUser
+        if (currentUser == null) {
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+            finish()
+        }
+        btnLogout.setOnClickListener(){
+            Firebase.auth.signOut()
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         // Set the Toolbar as the app bar for the activity
         setSupportActionBar(toolbar)

@@ -79,7 +79,7 @@
         <Button
             android:id="@+id/btn_back_login"
             android:layout_gravity="center"
-            android:text="@string/BackToLogin"
+            android:text="@string/Login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </androidx.appcompat.widget.LinearLayoutCompat>

@@ -10,7 +10,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //bullcrap
-        // Mitil branch created
+
+        val intent = Intent(this, SplashScreenActivity::class.java)
+        startActivity(intent)
+
     }
 }
