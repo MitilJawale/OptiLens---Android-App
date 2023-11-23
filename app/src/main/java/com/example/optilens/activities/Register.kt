@@ -51,16 +51,18 @@ class Register : AppCompatActivity() {
             }
 
 
+            else {
+                auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(baseContext,"Registration Successful",Toast.LENGTH_SHORT).show()
 
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(baseContext,"Registration Successful",Toast.LENGTH_SHORT).show()
-
-                    } else {
-                        Toast.makeText(baseContext,"Authentication failed",Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(baseContext,"Authentication failed",Toast.LENGTH_SHORT).show()
+                        }
                     }
-                }
+            }
+
 
 
         }

@@ -26,7 +26,7 @@ class Login : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, HomePageActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -59,18 +59,22 @@ class Login : AppCompatActivity() {
             } else if (TextUtils.isEmpty(password)) {
                 Toast.makeText(this, "Password field is empty", Toast.LENGTH_SHORT).show()
             }
-            auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this,"Login Successful",Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    } else {
+            else {
 
-                        Toast.makeText(this,"Authentication failed.",Toast.LENGTH_SHORT).show()
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, HomePageActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        } else {
+
+                            Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     }
-                }
+            }
 
 
         }
