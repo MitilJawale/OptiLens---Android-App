@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "611696702196",
+    "project_id": "optilens-d47c8",
+    "storage_bucket": "optilens-d47c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611696702196:android:58d44e5d4e27412a5c24a1",
+        "android_client_info": {
+          "package_name": "com.example.optilens"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwH4jajU7IB-rd27gVwxyjcSSD2W-AMmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
