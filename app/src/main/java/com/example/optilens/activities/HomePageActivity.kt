@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.optilens.R
 import com.example.optilens.fragments.HomeFragment
+import com.example.optilens.fragments.LensPowerFragment
 import com.example.optilens.fragments.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -18,6 +19,7 @@ import com.google.firebase.ktx.Firebase
 class HomePageActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var btnpower : Button
 
     private lateinit var btnLogout: Button
     private lateinit var btnProfile : Button
@@ -32,6 +34,7 @@ class HomePageActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         btnLogout = findViewById(R.id.btn_logout)
+        btnpower = findViewById(R.id.btn_lens_power)
         btnProfile = findViewById(R.id.btn_profile)
 
         val currentUser = auth.currentUser
@@ -55,6 +58,15 @@ class HomePageActivity : AppCompatActivity() {
                 .addToBackStack(null)
                 .commit()
         }
+
+        btnpower.setOnClickListener(){
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_layout_main, LensPowerFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+
 
 
         // Set the Toolbar as the app bar for the activity

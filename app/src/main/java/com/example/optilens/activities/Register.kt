@@ -82,6 +82,7 @@ class Register : AppCompatActivity() {
             val email: String = etEmail.text.toString()
             val password: String = etPassword.text.toString()
 
+
             if (TextUtils.isEmpty(name)) {
                 Toast.makeText(this, "Name field is empty", Toast.LENGTH_SHORT).show()
             } else if (TextUtils.isEmpty(address)) {
