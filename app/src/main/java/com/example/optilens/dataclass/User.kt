@@ -15,6 +15,7 @@ data class User(
     val cart: List<CartItem> = emptyList(),
     val orders: List<Order> = emptyList(),
     val lensPrescription: LensPrescription? = null
+
 ){
     fun updateGender(newGender: String?): User {
         return this.copy(gender = newGender)
@@ -49,10 +50,11 @@ data class OrderedProduct(
 )
 
 data class LensPrescription(
-    val sphRight: Double? = null,
-    val cylRight: Double? = null,
-    val axisRight: Int? = null,
-    val sphLeft: Double? = null,
-    val cylLeft: Double? = null,
-    val axisLeft: Int? = null
+    val userId: String?=null,
+    val sphRight: String? = null,
+    val cylRight: String? = null,
+    val axisRight: String? = null,
+    val sphLeft: String? = null,
+    val cylLeft: String? = null,
+    val axisLeft: String? = null
 )

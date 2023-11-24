@@ -26,6 +26,7 @@ import com.google.firebase.ktx.Firebase
 class HomePageActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+
     private lateinit var btnLogout: Button
     private lateinit var btnLensPower : Button
 
