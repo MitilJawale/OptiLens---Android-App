@@ -1,24 +1,16 @@
 package com.example.optilens.activities
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
 import android.widget.Button
-import android.widget.FrameLayout
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.optilens.R
 import com.example.optilens.fragments.HomeFragment
-import com.example.optilens.fragments.LensPowerFragment
+import com.example.optilens.fragments.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -28,7 +20,8 @@ class HomePageActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     private lateinit var btnLogout: Button
-    private lateinit var btnLensPower : Button
+    private lateinit var btnProfile : Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +32,8 @@ class HomePageActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         btnLogout = findViewById(R.id.btn_logout)
-        btnLensPower = findViewById(R.id.btn_lens_power)
+        btnProfile = findViewById(R.id.btn_profile)
+
         val currentUser = auth.currentUser
         if (currentUser == null) {
             val intent = Intent(this, Login::class.java)
@@ -53,13 +47,14 @@ class HomePageActivity : AppCompatActivity() {
             finish()
         }
 
-        btnLensPower.setOnClickListener(){
 
+
+        btnProfile.setOnClickListener(){
             supportFragmentManager.beginTransaction()
-                .replace(R.id.frame_layout_main, LensPowerFragment())
+                .replace(R.id.frame_layout_main, ProfileFragment())
                 .addToBackStack(null)
                 .commit()
-            }
+        }
 
 
         // Set the Toolbar as the app bar for the activity
@@ -83,32 +78,6 @@ class HomePageActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-
-
-
-
-
-
-
-
-    // BELOW CODE CAN BE USED FOR ADDING FUNCTIONALITY TO TOOLBAR
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.menu_main, menu)
-//        return true
-//    }
-//
-//
-//    // Optionally, you can handle menu item clicks in onOptionsItemSelected
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            // Handle your menu item clicks here
-//            R.id.action_settings -> {
-//                // Do something
-//                return true
-//            }
-//            else -> return super.onOptionsItemSelected(item)
-//        }
-//    }
 
 
 }

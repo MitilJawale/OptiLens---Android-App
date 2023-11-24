@@ -8,6 +8,16 @@
     <string name="Address">Address\n</string>
     <string name="BackToLogin">Back To Login</string>
     <string name="Logout">logout</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Phone">Phone</string>
+    <string name="UploadPicture">Upload Picture</string>
+    <string-array name="Gender">
+
+        <item>Male</item>
+        <item>Female</item>
+        <item>Non-Binary</item>
+        <item>Prefer not to say</item>
+
+    </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Profile">Profile</string>
 </resources>
