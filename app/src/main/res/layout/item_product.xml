@@ -1,0 +1,60 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/iv_product"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weightSum="10">
+
+    <TextView
+        android:id="@+id/tv_ProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="Product Name"
+        android:lines="2"
+        android:layout_weight="9"
+        />
+
+    <ImageView
+        android:id="@+id/iv_wishlistImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_favorite_24"
+        android:layout_gravity="end"
+        app:tint="@color/light_app_color" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_ProductPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Price: $0.00" />
+
+    <Button
+        android:id="@+id/btn_addToCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to cart"
+        android:drawableLeft="@drawable/baseline_shopping_cart_24" />
+
+
+
+
+</LinearLayout>

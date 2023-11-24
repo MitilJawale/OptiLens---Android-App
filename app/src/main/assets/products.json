@@ -1,0 +1,444 @@
+{
+  "eyeglasses": [
+    {
+      "productId": "LK123456",
+      "productName": "Lenskart Premium Glasses",
+      "category": "Eyewear",
+      "brand": "Lenskart",
+      "frameColor": "Black",
+      "frameStyle": "Rectangular",
+      "gender": "Unisex",
+      "dimensions": {
+        "width": 140,
+        "height": 45,
+        "bridgeSize": 18,
+        "templeLength": 140
+      },
+      "specifications": {
+        "prescription": true,
+        "uvProtection": true,
+        "antiReflectiveCoating": false
+      },
+      "price": 499.99,
+      "ratings": {
+        "averageRating": 4.5,
+        "numberOfRatings": 200
+      },
+      "images": {
+        "frontView": "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/ms/media/catalog_product/1/31-p1839_f.jpg",
+        "sideView": "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/ms/media/catalog_product/1/31-p1839_u.jpg",
+        "backView": "https://upload.wikimedia.org/wikipedia/commons/7/79/James_Gunn_%2828557194032%29_%28cropped%29.jpg"
+      }
+    },
+    {
+      "productId": "LK234567",
+      "productName": "Trendy Eyewear",
+      "category": "Eyewear",
+      "brand": "FashionEyes",
+      "frameColor": "Blue",
+      "frameStyle": "Round",
+      "gender": "Female",
+      "dimensions": {
+        "width": 130,
+        "height": 50,
+        "bridgeSize": 20,
+        "templeLength": 135
+      },
+      "specifications": {
+        "prescription": true,
+        "uvProtection": true,
+        "antiReflectiveCoating": true
+      },
+      "price": 349.99,
+      "ratings": {
+        "averageRating": 4.2,
+        "numberOfRatings": 150
+      },
+      "images": {
+        "frontView": "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/ms/media/catalog_product/1/35-002026_f.jpg",
+        "sideView": "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/ms/media/catalog_product/1/35-002685_u.jpg",
+        "backView": "https://cdn11.bigcommerce.com/s-7vk8yktg/images/stencil/1280x1280/products/562/4550/Geek_Eyewear_Geek_Harry_2_Blue_Eric__89248.1681761313.jpg?c=2"
+      }
+    },
+    {
+      "productId": "LK345678",
+      "productName": "Vintage Sunglasses",
+      "category": "Eyewear",
+      "brand": "RetroShades",
+      "frameColor": "Brown",
+      "frameStyle": "Cat-Eye",
+      "gender": "Unisex",
+      "dimensions": {
+        "width": 145,
+        "height": 40,
+        "bridgeSize": 16,
+        "templeLength": 138
+      },
+      "specifications": {
+        "prescription": false,
+        "uvProtection": true,
+        "antiReflectiveCoating": true
+      },
+      "price": 299.99,
+      "ratings": {
+        "averageRating": 4.8,
+        "numberOfRatings": 100
+      },
+      "images": {
+        "frontView": "https://res.ygstatic.com/frame/8049/80491/339/2.1200.1679471452-16c.jpg",
+        "sideView": "https://res.ygstatic.com/frame/8049/80491/339/3.1200.1679471477-b79.jpg",
+        "backView": "https://www.lunigal.com/images/stars/robert_downey_jr-1149.jpg"
+      }
+    },
+    {
+      "productId": "LK456789",
+      "productName": "Sporty Sunglasses",
+      "category": "Eyewear",
+      "brand": "ActiveEyes",
+      "frameColor": "Black",
+      "frameStyle": "Wrap-Around",
+      "gender": "Unisex",
+      "dimensions": {
+        "width": 150,
+        "height": 55,
+        "bridgeSize": 18,
+        "templeLength": 142
+      },
+      "specifications": {
+        "prescription": false,
+        "uvProtection": true,
+        "antiReflectiveCoating": true
+      },
+      "price": 399.99,
+      "ratings": {
+        "averageRating": 4.7,
+        "numberOfRatings": 80
+      },
+      "images": {
+        "frontView": "https://assets2.oakley.com/cdn-record-files-pi/ea3c562c-dd34-408b-99bf-acfb0075d38d/9df5ff44-2798-4b5b-9127-ad5a00787634/0OX8032__803201__P21__shad__fr.png?impolicy=OO_ratio&width=2000",
+        "sideView": "https://assets2.oakley.com/cdn-record-files-pi/ea3c562c-dd34-408b-99bf-acfb0075d38d/04b464b9-f414-4ee7-a43d-ad5a007873a6/0OX8032__803201__P21__shad__al1.png?impolicy=OO_ratio&width=2000",
+        "backView": "https://m.media-amazon.com/images/I/71qZnXZvimL._AC_SX569_.jpg"
+      }
+    },
+    {
+      "productId": "LK567890",
+      "productName": "Aviator Eyeglasses",
+      "category": "Eyewear",
+      "brand": "ClassicShades",
+      "frameColor": "Silver",
+      "frameStyle": "Aviator",
+      "gender": "Unisex",
+      "dimensions": {
+        "width": 148,
+        "height": 52,
+        "bridgeSize": 20,
+        "templeLength": 136
+      },
+      "specifications": {
+        "prescription": false,
+        "uvProtection": true,
+        "antiReflectiveCoating": false
+      },
+      "price": 249.99,
+      "ratings": {
+        "averageRating": 4.4,
+        "numberOfRatings": 60
+      },
+      "images": {
+        "frontView": "https://images.ray-ban.com/is/image/RayBan/8056597010757__STD__shad__fr.png?impolicy=RB_Product&width=1024&bgc=%23f2f2f2",
+        "sideView": "https://images.ray-ban.com/is/image/RayBan/8056597010757__STD__shad__lt.png?impolicy=RB_Product&width=1024&bgc=%23f2f2f2",
+        "backView": "https://assets.glasses.com/is/image/Glasses/8056597010757_GL_shad_omfr.png?impolicy=GL_parameters_transp_clone1440"
+      }
+    }
+  ],
+  "sunglasses": [
+    {
+      "productId": "LK567890",
+      "productName": "Aviator Sunglasses",
+      "category": "Eyewear",
+      "brand": "ClassicShades",
+      "frameColor": "Silver",
+      "frameStyle": "Aviator",
+      "lensMaterial": "Polycarbonate",
+      "lensColor": "Green",
+      "uvProtection": "100% UVA/UVB protection",
+      "dimensions": {
+        "width": 148,
+        "height": 52,
+        "bridgeSize": 20,
+        "templeLength": 136
+      },
+      "specifications": {
+        "prescription": false,
+        "uvProtection": true,
+        "antiReflectiveCoating": false
+      },
+      "price": 249.99,
+      "ratings": {
+        "averageRating": 4.4,
+        "numberOfRatings": 60
+      },
+      "images": {
+        "frontView": "https://images.ray-ban.com/is/image/RayBan/8056597641623__STD__shad__fr.png?impolicy=RB_Product&width=1024&bgc=%23f2f2f2",
+        "sideView": "https://images.ray-ban.com/is/image/RayBan/8056597641623__STD__shad__qt.png?impolicy=RB_Product&width=1024&bgc=%23f2f2f2",
+        "backView": "https://cdn-gpcop.nitrocdn.com/LSmAaoIaQbZTlrRrASJSoBrphCJZVECh/assets/images/optimized/rev-b27ff6d/aoeyewear.com/app/uploads/2023/06/Tom-Cruise_Wimbledon-AO_3-7.9.22-1024x683.jpg"
+      }
+    },
+    {
+      "productId": "LK678901",
+      "productName": "Oversized Sunglasses",
+      "category": "Eyewear",
+      "brand": "GlamShades",
+      "frameColor": "Tortoise",
+      "frameStyle": "Oversized",
+      "lensMaterial": "CR39",
+      "lensColor": "Black",
+      "uvProtection": "100% UVA/UVB protection",
+      "dimensions": {
+        "width": 155,
+        "height": 60,
+        "bridgeSize": 22,
+        "templeLength": 145
+      },
+      "specifications": {
+        "prescription": false,
+        "uvProtection": true,
+        "antiReflectiveCoating": false
+      },
+      "price": 349.99,
+      "ratings": {
+        "averageRating": 4.6,
+        "numberOfRatings": 120
+      },
+      "images": {
+        "frontView": "https://res.ygstatic.com/frame/1505/15051/339/2.1200.1689941898-901.jpg",
+        "sideView": "https://res.ygstatic.com/frame/1505/15051/339/3.1200.1689942096-7ec.jpg",
+        "backView": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/a6f64f6e-0256-4665-8bf8-aafcaeec6a21.__CR480,6,500,500_PT0_SX300_V1___.jpeg"
+      }
+    },
+    {
+      "productId": "LK789012",
+      "productName": "Cat-Eye Sunglasses",
+      "category": "Eyewear",
+      "brand": "RetroLuxe",
+      "frameColor": "Black",
+      "frameStyle": "Cat-Eye",
+      "lensMaterial": "CR39",
+      "lensColor": "Brown",
+      "uvProtection": "100% UVA/UVB protection",
+      "dimensions": {
+        "width": 140,
+        "height": 45,
+        "bridgeSize": 16,
+        "templeLength": 138
+      },
+      "specifications": {
+        "prescription": true,
+        "uvProtection": true,
+        "antiReflectiveCoating": true
+      },
+      "price": 299.99,
+      "ratings": {
+        "averageRating": 4.9,
+        "numberOfRatings": 90
+      },
+      "images": {
+        "frontView": "https://m.media-amazon.com/images/I/51n8fAOx0oL._AC_SX569_.jpg",
+        "sideView": "https://m.media-amazon.com/images/I/61qNmYYlPmS._AC_SX569_.jpg",
+        "backView": "https://m.media-amazon.com/images/I/91vCZvQYcXL.jpg"
+      }
+    },
+    {
+      "productId": "LK890123",
+      "productName": "Pilot Sunglasses",
+      "category": "Eyewear",
+      "brand": "AviatorClassics",
+      "frameColor": "Gold",
+      "frameStyle": "Pilot",
+      "lensMaterial": "Polycarbonate",
+      "lensColor": "Green",
+      "uvProtection": "100% UVA/UVB protection",
+      "dimensions": {
+        "width": 150,
+        "height": 50,
+        "bridgeSize": 18,
+        "templeLength": 136
+      },
+      "specifications": {
+        "prescription": false,
+        "uvProtection": true,
+        "antiReflectiveCoating": true
+      },
+      "price": 399.99,
+      "ratings": {
+        "averageRating": 4.8,
+        "numberOfRatings": 75
+      },
+      "images": {
+        "frontView": "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597657983__STD__shad__fr.png?impolicy=SGH_bgtransparent",
+        "sideView": "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597657983__STD__shad__lt.png?impolicy=SGH_bgtransparent",
+        "backView": "https://assets.sunglasshut.com/is/image/LuxotticaRetail/8056597657983__STD__shad__bk.png?impolicy=SGH_bgtransparent"
+      }
+    },
+    {
+      "productId": "LK901234",
+      "productName": "Wayfarer Sunglasses",
+      "category": "Eyewear",
+      "brand": "ClassicShades",
+      "frameColor": "Black",
+      "frameStyle": "Wayfarer",
+      "lensMaterial": "CR39",
+      "lensColor": "Grey",
+      "uvProtection": "100% UVA/UVB protection",
+      "dimensions": {
+        "width": 145,
+        "height": 48,
+        "bridgeSize": 20,
+        "templeLength": 135
+      },
+      "specifications": {
+        "prescription": false,
+        "uvProtection": true,
+        "antiReflectiveCoating": false
+      },
+      "price": 249.99,
+      "ratings": {
+        "averageRating": 4.7,
+        "numberOfRatings": 180
+      },
+      "images": {
+        "frontView": "https://images.ray-ban.com/is/image/RayBan/805289126577__STD__shad__fr.png?impolicy=RB_Product&width=1024&bgc=%23f2f2f2",
+        "sideView": "https://images.ray-ban.com/is/image/RayBan/805289126577__STD__shad__qt.png?impolicy=RB_Product&width=1024&bgc=%23f2f2f2",
+        "backView": "https://www.fashionbeans.com/wp-content/uploads/2018/04/ray-ban-wayfarers-guide1.jpg"
+      }
+    }
+  ],
+  "contactlens": [
+    {
+      "productId": "CL012345",
+      "productName": "Dailies AquaComfort Plus Contact Lenses",
+      "category": "Contact Lenses",
+      "brand": "Alcon",
+      "lensType": "Daily Disposable",
+      "material": "Hydrogel",
+      "waterContent": 0.58,
+      "spherePowerRange": "-20.00 to +6.00",
+      "cylinderPowerRange": "-4.00 to +4.00",
+      "availability": "In Stock",
+      "price": 19.99,
+      "ratings": {
+        "averageRating": 4.8,
+        "numberOfRatings": 120
+      },
+      "images": {
+        "frontView": "https://www.contactlens.com/images/dailies_aquaconfort_plus_front_view.jpg",
+        "sideView": "https://www.contactlens.com/images/dailies_aquaconfort_plus_side_view.jpg",
+        "packageImage": "https://www.contactlens.com/images/dailies_aquaconfort_plus_package.jpg"
+      },
+      "productDetails": {
+        "comfortDuration": "12 hours",
+        "uvProtection": "Yes",
+        "tinted": false,
+        "availableColors": [
+          "Clear"
+        ],
+        "recommendedUse": "Daily wear",
+        "replacementSchedule": "Daily disposable"
+      }
+    }
+  ],
+  "accessories": [
+    {
+      "productId": "EA234567",
+      "productName": "Comprehensive Eyeglass Repair Kit",
+      "category": "Accessories",
+      "brand": "RepairMyGlasses",
+      "accessoryType": "Repair Kit",
+      "color": "Silver",
+      "price": 14.99,
+      "ratings": {
+        "averageRating": 4.6,
+        "numberOfRatings": 60
+      },
+      "images": {
+        "frontView": "https://www.eyeglasses.com/images/eyeglass_repair_kit_front_view.jpg",
+        "sideView": "https://www.eyeglasses.com/images/eyeglass_repair_kit_side_view.jpg",
+        "contentsImage": "https://www.eyeglasses.com/images/eyeglass_repair_kit_contents_image.jpg"
+      },
+      "productDetails": {
+        "includes": "Screwdriver, tweezers, nose pads, screws, cleaning cloth",
+        "easyToUse": "Step-by-step instructions included",
+        "versatile": "Suitable for a wide range of eyeglasses"
+      }
+    },
+    {
+      "productId": "EA567890",
+      "productName": "Anti-Fog and Smudge-Resistant Eyeglass Cleaning Spray",
+      "category": "Accessories",
+      "brand": "ClearViewOptics",
+      "accessoryType": "Cleaning Spray",
+      "size": "60ml",
+      "price": 9.99,
+      "ratings": {
+        "averageRating": 4.8,
+        "numberOfRatings": 100
+      },
+      "images": {
+        "frontView": "https://www.eyeglasses.com/images/eyeglass_cleaning_spray_front_view.jpg",
+        "sideView": "https://www.eyeglasses.com/images/eyeglass_cleaning_spray_side_view.jpg",
+        "sprayImage": "https://www.eyeglasses.com/images/eyeglass_cleaning_spray_spray_image.jpg"
+      },
+      "productDetails": {
+        "effectiveCleaning": "Safely removes smudges, dust, and fingerprints",
+        "anti-fogFormula": "Prevents fogging and condensation",
+        "streak-freeResults": "Leaves eyeglasses clean and clear"
+      }
+    },
+    {
+      "productId": "EA678901",
+      "productName": "Adjustable Eyeglass Cord with Clasps",
+      "category": "Accessories",
+      "brand": "EyeSecure",
+      "accessoryType": "Cord",
+      "color": "Black",
+      "price": 14.99,
+      "ratings": {
+        "averageRating": 4.5,
+        "numberOfRatings": 80
+      },
+      "images": {
+        "frontView": "https://www.eyeglasses.com/images/eyeglass_cord_front_view.jpg",
+        "sideView": "https://www.eyeglasses.com/images/eyeglass_cord_side_view.jpg",
+        "wornImage": "https://www.eyeglasses.com/images/eyeglass_cord_worn_image.jpg"
+      },
+      "productDetails": {
+        "secureAttachment": "Durable clasps for a secure and comfortable fit",
+        "adjustableLength": "Fits most glasses and head sizes",
+        "lightweightAndComfortable": "Won't weigh down your eyeglasses"
+      }
+    },
+    {
+      "productId": "EA789012",
+      "productName": "Protective Eyeglass Case with Microfiber Cleaning Cloth",
+      "category": "Accessories",
+      "brand": "EyeCareEssentials",
+      "accessoryType": "Case",
+      "color": "Blue",
+      "price": 19.99,
+      "ratings": {
+        "averageRating": 4.9,
+        "numberOfRatings": 120
+      },
+      "images": {
+        "frontView": "https://www.eyeglasses.com/images/eyeglass_case_with_cleaning_cloth_front_view.jpg",
+        "sideView": "https://www.eyeglasses.com/images/eyeglass_case_with_cleaning_cloth_side_view.jpg",
+        "openView": "https://www.eyeglasses.com/images/eyeglass_case_with_cleaning_cloth_open_view.jpg"
+      },
+      "productDetails": {
+        "protectiveDesign": "Shockproof and scratch-resistant to protect your eyeglasses",
+        "softInteriorLining": "Gentle on your eyeglasses",
+        "includesCleaningCloth": "Microfiber cloth for effective cleaning"
+      }
+    }
+  ]
+}
