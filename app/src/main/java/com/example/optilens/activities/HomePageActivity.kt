@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -20,17 +22,30 @@ class HomePageActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var btnpower : Button
-
+    private lateinit var tvToolbarTitle : TextView
     private lateinit var btnLogout: Button
     private lateinit var btnProfile : Button
+    private lateinit var toolbar : Toolbar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
 
-        // Find the Toolbar in your layout
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        // Find all the views in your layout
+        toolbar = findViewById(R.id.toolbar)
+        tvToolbarTitle = findViewById(R.id.tv_toolbar_title)
+
+
+        // On clicking "Optilens" in toolbar user to be returned to homepage
+        tvToolbarTitle.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_layout_main, HomeFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+
 
         auth = Firebase.auth
         btnLogout = findViewById(R.id.btn_logout)
@@ -43,6 +58,8 @@ class HomePageActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+
         btnLogout.setOnClickListener(){
             Firebase.auth.signOut()
             val intent = Intent(this, Login::class.java)

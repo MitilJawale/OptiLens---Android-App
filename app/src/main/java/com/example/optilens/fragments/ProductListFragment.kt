@@ -6,11 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.optilens.R  // Replace with your actual package name
 import com.example.optilens.adapter.ProductAdapter
@@ -50,6 +47,18 @@ class ProductListFragment : Fragment() {
         }
         else if(categoryId.equals("sunglass")){
             val adapter = productList?.sunglasses?.let {
+                ProductAdapter(requireContext(), it, productList)
+            }
+            recyclerView.adapter = adapter
+        }
+        else if(categoryId.equals("contactlens")){
+            val adapter = productList?.contactlens?.let {
+                ProductAdapter(requireContext(), it, productList)
+            }
+            recyclerView.adapter = adapter
+        }
+        else if(categoryId.equals("accessories")){
+            val adapter = productList?.accessories?.let {
                 ProductAdapter(requireContext(), it, productList)
             }
             recyclerView.adapter = adapter

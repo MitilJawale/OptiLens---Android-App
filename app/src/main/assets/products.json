@@ -331,9 +331,9 @@
         "numberOfRatings": 120
       },
       "images": {
-        "frontView": "https://www.contactlens.com/images/dailies_aquaconfort_plus_front_view.jpg",
-        "sideView": "https://www.contactlens.com/images/dailies_aquaconfort_plus_side_view.jpg",
-        "packageImage": "https://www.contactlens.com/images/dailies_aquaconfort_plus_package.jpg"
+        "frontView": "https://assets.contactsdirect.com/extra/image/ContactsDirect/contacts_hd/DA90_fr.png?width=1600&impolicy=CD_CL",
+        "sideView": "https://assets.contactsdirect.com/extra/image/ContactsDirect/contacts_hd/DA90_sd.png?width=1600&impolicy=CD_CL",
+        "backView": "https://www.citylens.my/wp-content/uploads/2014/08/Dailies-AquaComfort-Plus-Lens.jpg"
       },
       "productDetails": {
         "comfortDuration": "12 hours",
@@ -361,9 +361,9 @@
         "numberOfRatings": 60
       },
       "images": {
-        "frontView": "https://www.eyeglasses.com/images/eyeglass_repair_kit_front_view.jpg",
-        "sideView": "https://www.eyeglasses.com/images/eyeglass_repair_kit_side_view.jpg",
-        "contentsImage": "https://www.eyeglasses.com/images/eyeglass_repair_kit_contents_image.jpg"
+        "frontView": "https://m.media-amazon.com/images/I/913dZhYTXQL._AC_SX679_.jpg",
+        "sideView": "https://m.media-amazon.com/images/I/81hzp7+VlvL._AC_SX679_.jpg",
+        "backView": "https://m.media-amazon.com/images/I/813A7bj9OjS._AC_SX679_.jpg"
       },
       "productDetails": {
         "includes": "Screwdriver, tweezers, nose pads, screws, cleaning cloth",
@@ -384,9 +384,9 @@
         "numberOfRatings": 100
       },
       "images": {
-        "frontView": "https://www.eyeglasses.com/images/eyeglass_cleaning_spray_front_view.jpg",
-        "sideView": "https://www.eyeglasses.com/images/eyeglass_cleaning_spray_side_view.jpg",
-        "sprayImage": "https://www.eyeglasses.com/images/eyeglass_cleaning_spray_spray_image.jpg"
+        "frontView": "https://m.media-amazon.com/images/I/51gaLJhiaxS.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+        "sideView": "https://m.media-amazon.com/images/I/71Jke5xZ0kL._AC_SX679_.jpg",
+        "backView": "https://m.media-amazon.com/images/I/61wru0dmYTL._AC_SX679_.jpg"
       },
       "productDetails": {
         "effectiveCleaning": "Safely removes smudges, dust, and fingerprints",
@@ -407,9 +407,9 @@
         "numberOfRatings": 80
       },
       "images": {
-        "frontView": "https://www.eyeglasses.com/images/eyeglass_cord_front_view.jpg",
-        "sideView": "https://www.eyeglasses.com/images/eyeglass_cord_side_view.jpg",
-        "wornImage": "https://www.eyeglasses.com/images/eyeglass_cord_worn_image.jpg"
+        "frontView": "https://m.media-amazon.com/images/I/71KZzUEyX9L._AC_SX569_.jpg",
+        "sideView": "https://m.media-amazon.com/images/I/61l1n+5luyL._AC_SX569_.jpg",
+        "backView": "https://m.media-amazon.com/images/I/81xZt6NF6cL._AC_SX569_.jpg"
       },
       "productDetails": {
         "secureAttachment": "Durable clasps for a secure and comfortable fit",
@@ -430,9 +430,9 @@
         "numberOfRatings": 120
       },
       "images": {
-        "frontView": "https://www.eyeglasses.com/images/eyeglass_case_with_cleaning_cloth_front_view.jpg",
-        "sideView": "https://www.eyeglasses.com/images/eyeglass_case_with_cleaning_cloth_side_view.jpg",
-        "openView": "https://www.eyeglasses.com/images/eyeglass_case_with_cleaning_cloth_open_view.jpg"
+        "frontView": "https://m.media-amazon.com/images/I/81lT0CuAYHL._AC_SX569_.jpg",
+        "sideView": "https://m.media-amazon.com/images/I/71BhO9xLD4S._AC_SX569_.jpg",
+        "backView": "https://m.media-amazon.com/images/I/71rAiGGIACS._AC_SX569_.jpg"
       },
       "productDetails": {
         "protectiveDesign": "Shockproof and scratch-resistant to protect your eyeglasses",
