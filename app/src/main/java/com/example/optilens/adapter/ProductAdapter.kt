@@ -12,6 +12,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.optilens.R
+import com.example.optilens.dataclass.Accessory
+import com.example.optilens.dataclass.ContactLens
 import com.example.optilens.dataclass.Eyeglass
 import com.example.optilens.dataclass.Product
 import com.example.optilens.dataclass.ProductCategory
@@ -20,14 +22,19 @@ import com.squareup.picasso.Picasso
 import com.squareup.picasso.Callback
 
 
-class ProductAdapter(private val context: Context, private val productList: List<Product>?, private val PROD: ProductCategory) :
-    RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(private val context: Context,
+                     private val productList: List<Product>?,
+                     private val PROD: ProductCategory
+) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val productName: TextView = itemView.findViewById(R.id.tv_ProductName)
         val productPrice: TextView = itemView.findViewById(R.id.tv_ProductPrice)
         var productImage: ImageView = itemView.findViewById(R.id.iv_product)
         // Add other views as needed for product details
+
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -46,6 +53,8 @@ class ProductAdapter(private val context: Context, private val productList: List
         // Find the eyeglass or sunglass with the matching productName
         val eyeglass = product?.let { findEyeglass(it.productName) }
         val sunglass = product?.let { findSunglass(it.productName) }
+        val contactlens = product?.let { findContactlens(it.productName) }
+        val accessories = product?.let { findAccessories(it.productName) }
 
 
         // Toggle WishList sign
@@ -68,6 +77,8 @@ class ProductAdapter(private val context: Context, private val productList: List
         when (product) {
             is Eyeglass -> loadImageWithPicasso(eyeglass!!, holder.productImage)
             is Sunglass -> loadImageWithPicasso(sunglass!!, holder.productImage)
+            is ContactLens -> loadImageWithPicasso(contactlens!!, holder.productImage)
+            is Accessory -> loadImageWithPicasso(accessories!!, holder.productImage)
         }
 
 
@@ -91,11 +102,25 @@ class ProductAdapter(private val context: Context, private val productList: List
             ?.find { it.productName == productName }
     }
 
+    private fun findContactlens(productName: String): ContactLens? {
+        // Filter the eyeglasses based on productName
+        return productList?.filterIsInstance<ContactLens>()
+            ?.find { it.productName == productName }
+    }
+
+    private fun findAccessories(productName: String): Accessory? {
+        // Filter the eyeglasses based on productName
+        return productList?.filterIsInstance<Accessory>()
+            ?.find { it.productName == productName }
+    }
+
 
     private fun getProductImageURL(product: Product): String? {
         return when (product) {
             is Eyeglass -> product.images.frontView
             is Sunglass -> product.images.frontView
+            is ContactLens -> product.images.frontView
+            is Accessory -> product.images.frontView
             else -> null
         }
     }
@@ -119,5 +144,6 @@ class ProductAdapter(private val context: Context, private val productList: List
                 }
             })
     }
+
 }
 

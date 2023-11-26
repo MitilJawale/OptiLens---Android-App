@@ -17,16 +17,19 @@ data class User(
 )
 
 data class WishlistItem(
-    val productId: Int,
+    val productId: String,
     val productName: String
-)
+) {
+    constructor() : this("","")
+}
 
 data class CartItem(
-    val productId: Int,
-    val productName: String,
-    val price: Double,
-    val subtotal: Double
-)
+    val productId: String? = null,
+    val productName: String? = null,
+    val price: Double? = null
+) {
+    constructor() : this(null,null,null)
+}
 
 data class Order(
     val orderId: String,
