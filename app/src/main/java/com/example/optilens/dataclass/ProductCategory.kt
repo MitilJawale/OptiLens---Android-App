@@ -10,9 +10,33 @@ interface Product {
     val productName: String
     val category: String
     val price: Double
-
+    fun getImageUrls(): List<String> // Add this method
+    val brand: String
+    val ratings: Ratings
+    val frameColor: String
+    val productStyle: String
+    val dimensions: Dimensions
     // Add other common properties/methods as needed
 }
+
+
+data class ConcreteProduct(
+    override val productId: String,
+    override val productName: String,
+    override val category: String,
+    override val price: Double,
+    override val brand: String,
+    override val ratings: Ratings,
+    override val frameColor: String,
+    override val productStyle: String,
+    override val dimensions: Dimensions,
+    val images: List<String>
+) : Product {
+    override fun getImageUrls(): List<String> {
+        return images
+    }
+}
+
 
 
 
@@ -27,63 +51,98 @@ data class Eyeglass(
     override val productId: String,
     override val productName: String,
     override val category: String,
-    val brand: String,
-    val frameColor: String,
-    val frameStyle: String,
+    override val brand: String,
+    override val frameColor: String,
+    override val productStyle: String,
     val gender: String,
-    val dimensions: Dimensions,
+    override val dimensions: Dimensions,
     val specifications: Specifications,
     override val price: Double,
-    val ratings: Ratings,
+    override val ratings: Ratings,
     val images: Images
-) : Product
+) : Product {
+    override fun getImageUrls(): List<String> {
+        return listOf(images.frontView, images.sideView, images.backView)
+    }
+}
 
 data class Sunglass(
     override val productId: String,
     override val productName: String,
     override val category: String,
-    val brand: String,
-    val frameColor: String,
-    val frameStyle: String,
+    override val brand: String,
+    override val frameColor: String,
+    override val productStyle: String,
     val lensMaterial: String,
     val lensColor: String,
     val uvProtection: String,
-    val dimensions: Dimensions,
+    override val dimensions: Dimensions,
     val specifications: Specifications,
     override val price: Double,
-    val ratings: Ratings,
+    override val ratings: Ratings,
     val images: Images
-) : Product
+) : Product {
+    override fun getImageUrls(): List<String> {
+        return listOf(images.frontView, images.sideView, images.backView)
+    }
+}
 
 data class ContactLens(
     override val productId: String,
     override val productName: String,
     override val category: String,
-    val brand: String,
-    val lensType: String,
+    override val brand: String,
+    override val productStyle: String,
     val material: String,
     val waterContent: Double,
     val spherePowerRange: String,
     val cylinderPowerRange: String,
     val availability: String,
     override val price: Double,
-    val ratings: Ratings,
+    override val ratings: Ratings,
     val images: Images,
-    val productDetails: ProductDetails
-) : Product
+    val productDetails: ProductDetails,
+
+    override val frameColor: String
+) : Product {
+    override fun getImageUrls(): List<String> {
+        return listOf(images.frontView, images.sideView, images.backView)
+    }
+
+    override val dimensions: Dimensions
+        get() = Dimensions(
+            width = -99,       // Replace with the actual width
+            height = -99,       // Replace with the actual height
+            bridgeSize = -99,   // Replace with the actual bridge size
+            templeLength = -99 // Replace with the actual temple length
+        )
+}
 
 data class Accessory(
     override val productId: String,
     override val productName: String,
     override val category: String,
-    val brand: String,
-    val accessoryType: String,
+    override val brand: String,
+    override val productStyle: String,
     val color: String,
     override val price: Double,
-    val ratings: Ratings,
+    override val ratings: Ratings,
     val images: Images,
-    val productDetails: ProductDetails
-) : Product
+    val productDetails: ProductDetails,
+    override val frameColor: String
+) : Product {
+    override fun getImageUrls(): List<String> {
+        return listOf(images.frontView, images.sideView, images.backView)
+    }
+
+    override val dimensions: Dimensions
+        get() = Dimensions(
+            width = -99,       // Replace with the actual width
+            height = -99,       // Replace with the actual height
+            bridgeSize = -99,   // Replace with the actual bridge size
+            templeLength = -99 // Replace with the actual temple length
+        )
+}
 
 data class Dimensions(
     val width: Int,

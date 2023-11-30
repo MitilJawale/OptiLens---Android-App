@@ -10,6 +10,8 @@
     <string name="Logout">Logout</string>
     <string name="Phone">Phone</string>
     <string name="UploadPicture">Upload Picture</string>
+    <string name="price_format">$%.2f</string>
+    <string name="ratings_format">%.1f</string>
     <string-array name="Gender">
 
         <item>Male</item>
