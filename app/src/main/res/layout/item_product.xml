@@ -51,7 +51,7 @@
         android:id="@+id/btn_addToCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add to cart"
+        android:text="@string/Addtocart"
         android:drawableLeft="@drawable/baseline_shopping_cart_24" />
 
 

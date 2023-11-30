@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -11,7 +12,6 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.optilens.R
 import com.example.optilens.fragments.HomeFragment
 import com.example.optilens.fragments.LensPowerFragment
-import com.example.optilens.fragments.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -20,7 +20,6 @@ class HomePageActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var btnpower : Button
-
     private lateinit var btnLogout: Button
     private lateinit var btnProfile : Button
 
@@ -52,12 +51,6 @@ class HomePageActivity : AppCompatActivity() {
 
 
 
-        btnProfile.setOnClickListener(){
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.frame_layout_main, ProfileFragment())
-                .addToBackStack(null)
-                .commit()
-        }
 
         btnpower.setOnClickListener(){
             supportFragmentManager.beginTransaction()

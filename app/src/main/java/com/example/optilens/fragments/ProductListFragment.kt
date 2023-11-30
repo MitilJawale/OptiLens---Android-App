@@ -44,13 +44,12 @@ class ProductListFragment : Fragment() {
 
         if (categoryId.equals("eyeglass")) {
             val adapter = productList?.eyeglasses?.let {
-                ProductAdapter(requireContext(), it, productList)
+                ProductAdapter(requireContext(), it)
             }
             recyclerView.adapter = adapter
-        }
-        else if(categoryId.equals("sunglass")){
+        } else if(categoryId.equals("sunglass")) {
             val adapter = productList?.sunglasses?.let {
-                ProductAdapter(requireContext(), it, productList)
+                ProductAdapter(requireContext(), it)
             }
             recyclerView.adapter = adapter
         }
