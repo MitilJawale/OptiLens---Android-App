@@ -7,24 +7,34 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.optilens.R
 import com.example.optilens.dataclass.Accessory
 import com.example.optilens.dataclass.ContactLens
+import com.example.optilens.dataclass.CartItem
 import com.example.optilens.dataclass.Eyeglass
 import com.example.optilens.dataclass.Product
 import com.example.optilens.dataclass.ProductCategory
 import com.example.optilens.dataclass.Sunglass
-import com.squareup.picasso.Picasso
+import com.example.optilens.dataclass.WishlistItem
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 
 
 class ProductAdapter(private val context: Context,
                      private val productList: List<Product>?,
-                     private val PROD: ProductCategory
+//                     private val PROD: ProductCategory
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -35,12 +45,16 @@ class ProductAdapter(private val context: Context,
 
 
 
+        var addToCart :Button= itemView.findViewById(R.id.btn_addToCart)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false)
         return ProductViewHolder(itemView)
     }
+
+
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList?.get(position)
@@ -49,29 +63,13 @@ class ProductAdapter(private val context: Context,
         holder.productPrice.text = product?.price.toString()
         holder.productImage.setImageResource(R.drawable.hard_wear_fv)
 
+        val wishlistImage = holder.itemView.findViewById<ImageView>(R.id.iv_wishlistImage)
 
         // Find the eyeglass or sunglass with the matching productName
         val eyeglass = product?.let { findEyeglass(it.productName) }
         val sunglass = product?.let { findSunglass(it.productName) }
         val contactlens = product?.let { findContactlens(it.productName) }
         val accessories = product?.let { findAccessories(it.productName) }
-
-
-        // Toggle WishList sign
-        val wishlistImage = holder.itemView.findViewById<ImageView>(R.id.iv_wishlistImage)
-        wishlistImage.setOnClickListener {
-            // Check the color of the drawable and set the color filter accordingly
-            val colorFilter = if (wishlistImage.colorFilter == null) {
-                PorterDuffColorFilter(
-                    ContextCompat.getColor(context, R.color.red),
-                    PorterDuff.Mode.SRC_IN
-                )
-            } else {
-                null
-            }
-            wishlistImage.colorFilter = colorFilter
-        }
-
 
         // Load image using Picasso based on the product type
         when (product) {
@@ -82,7 +80,176 @@ class ProductAdapter(private val context: Context,
         }
 
 
+
+        holder.addToCart.setOnClickListener {
+            // Handle the click event for the addToCart button
+            // For example, you can call the addToCart function here
+            val cartItem = CartItem(product?.productId.toString(), product?.productName.toString(), product?.price ?: 0.0)
+            addToCart(cartItem)
+        }
+
+        // Check if the productId is in the wishlist
+        getWishlistProductIds { wishlistProductIds ->
+            val isInWishlist = wishlistProductIds.contains(product?.productId)
+            // Set the color filter for the wishlist image based on whether it's in the wishlist
+            if (isInWishlist) {
+                val colorFilter = PorterDuffColorFilter(
+                    ContextCompat.getColor(context, R.color.red),
+                    PorterDuff.Mode.SRC_IN
+                )
+                wishlistImage.setColorFilter(colorFilter)
+            } else {
+                wishlistImage.clearColorFilter()
+            }
+        }
+
+        // Toggle WishList sign
+        wishlistImage.setOnClickListener {
+            val productId = product?.productId ?: ""
+            val productName = product?.productName ?: ""
+
+            // Check the color of the drawable and set the color filter accordingly
+            if (wishlistImage.colorFilter == null) {
+                val colorFilter = PorterDuffColorFilter(
+                    ContextCompat.getColor(context, R.color.red),
+                    PorterDuff.Mode.SRC_IN
+                )
+
+                // Log the product name when the wishlist button is clicked
+                Log.d("Wishlist", "Product Name: $productName")
+                val wl = WishlistItem(productId, productName)
+                addToWishList(wl)
+                wishlistImage.setColorFilter(colorFilter)
+            } else {
+                wishlistImage.clearColorFilter()
+                Log.d("Wishlist", "Now you are here")
+                val wl = WishlistItem(productId, productName)
+                addToWishList(wl)
+            }
+        }
     }
+
+    private fun getUserRef(): DatabaseReference {
+        val userId = FirebaseAuth.getInstance().currentUser!!.uid
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        return database.reference.child("Users").child(userId)
+    }
+    private fun getWishlistProductIds(callback: (List<String>) -> Unit) {
+        val userRef = getUserRef()
+
+        userRef.child("wishlist").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val productIds = mutableListOf<String>()
+
+                if (snapshot.exists()) {
+                    for (childSnapshot in snapshot.children) {
+                        val item = childSnapshot.getValue(WishlistItem::class.java)
+                        Log.d("Wishlist",item.toString())
+                        item?.productId?.let { productIds.add(it) }
+                    }
+                }
+
+                callback(productIds)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle the error
+                Log.e("ProductAdapter", "Database error", error.toException())
+            }
+        })
+    }
+
+    private fun addToWishList(wl: WishlistItem) {
+            val userRef = getUserRef()
+            userRef.child("wishlist").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val currentWishlist = mutableListOf<WishlistItem>()
+
+                    if (snapshot.exists()) {
+                        for (childSnapshot in snapshot.children) {
+                            val item = childSnapshot.getValue(WishlistItem::class.java)
+                            if (item != null) {
+                                currentWishlist.add(item)
+                            }
+                        }
+                    }
+                    // Check if the item is already in the wishlist
+                    val existingItem = currentWishlist.find { it.productId == wl.productId }
+                    if (existingItem == null) {
+                        // Item is not in the wishlist, add it
+                        currentWishlist.add(wl)
+                        Toast.makeText(context, "Added to wishlist", Toast.LENGTH_SHORT).show()
+                        Log.d("ProductAdapter", "Item added to wishlist: $wl")
+                    } else {
+                        // Item is already in the wishlist, remove it
+                        currentWishlist.remove(existingItem)
+                        Toast.makeText(context, "Removed from wishlist", Toast.LENGTH_SHORT).show()
+                        Log.d("ProductAdapter", "Item removed from wishlist: $existingItem")
+                    }
+
+                    // Update the wishlist in the Realtime Database
+                    userRef.child("wishlist").setValue(currentWishlist)
+                        .addOnSuccessListener {
+                            // Wishlist updated successfully
+                            Log.d("ProductAdapter", "Wishlist updated successfully")
+                        }
+                        .addOnFailureListener { e ->
+                            // Handle the failure to update the wishlist
+                            Log.e("ProductAdapter", "Error updating wishlist", e)
+                        }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Handle the error
+                    Log.e("ProductAdapter", "Database error", error.toException())
+                }
+            })
+
+    }
+    private fun addToCart(ci: CartItem) {
+        val userRef = getUserRef()
+
+        // Fetch the existing cart to avoid overwriting it
+        userRef.child("cart").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val currentCart = mutableListOf<CartItem>()
+
+                if (snapshot.exists()) {
+                    for (childSnapshot in snapshot.children) {
+                        val item = childSnapshot.getValue(CartItem::class.java)
+                        if (item != null) {
+                            currentCart.add(item)
+                        }
+                    }
+                }
+        // Load image using Picasso based on the product type
+
+
+                // Add the new item to the cart
+                currentCart.add(ci)
+
+                // Update the cart in the Realtime Database
+                userRef.child("cart").setValue(currentCart)
+                    .addOnSuccessListener {
+                        // Cart updated successfully
+                        Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show()
+                        Log.d("ProductAdapter", "Item added to cart: $ci")
+                    }
+                    .addOnFailureListener { e ->
+                        // Handle the failure to update the cart
+                        Log.e("ProductAdapter", "Error updating cart", e)
+                    }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle the error
+                Log.e("ProductAdapter", "Database error", error.toException())
+            }
+        })
+    }
+
+
+
 
     override fun getItemCount(): Int {
         return productList?.size ?: 0
