@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.optilens.R
 import com.example.optilens.fragments.HomeFragment
 import com.example.optilens.fragments.LensPowerFragment
+import com.example.optilens.fragments.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -70,9 +71,17 @@ class HomePageActivity : AppCompatActivity() {
 
 
 
+
         btnpower.setOnClickListener(){
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frame_layout_main, LensPowerFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        btnProfile.setOnClickListener(){
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_layout_main, ProfileFragment())
                 .addToBackStack(null)
                 .commit()
         }

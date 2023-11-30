@@ -25,7 +25,6 @@ import com.example.optilens.dataclass.ProductCategory
 import com.example.optilens.dataclass.Sunglass
 import com.example.optilens.fragments.ProductDescriptionFragment
 import com.google.gson.Gson
-import com.squareup.picasso.Picasso
 import com.example.optilens.dataclass.WishlistItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot

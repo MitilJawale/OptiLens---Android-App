@@ -78,28 +78,31 @@ class ProfileFragment : Fragment() {
 
             userRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()) {
-                        val user = snapshot.getValue(User::class.java)
+                    if (isAdded) {
+                        if (snapshot.exists()) {
+                            val user = snapshot.getValue(User::class.java)
 
-                        if (user != null) {
-                            // Display user information
-                            txtName.text = "Name : "+ user.name
-                            txtAddress.text = "Address : "+ user.address
-                            txtEmail.text ="Address : "+ user.email
-                            txtPhone.text="Phone Number : "+user.phoneNumber
-                            txtPassword.text="Password : "+user.password
-                            if (user.profilePicture != " ") {
-                                // Load and display profile picture using Glide
-                                Glide.with(requireContext())
-                                    .load(user.profilePicture)
-                                    .into(previewImage)
-                            } else {
-                                // If no profile picture is available, you might want to set a default image
-                                previewImage.setImageResource(R.drawable.boy_profile_picture)
+                            if (user != null) {
+                                // Display user information
+                                txtName.text = "Name : "+ user.name
+                                txtAddress.text = "Address : "+ user.address
+                                txtEmail.text ="Address : "+ user.email
+                                txtPhone.text="Phone Number : "+user.phoneNumber
+                                txtPassword.text="Password : "+user.password
+                                if (user.profilePicture != " ") {
+                                    // Load and display profile picture using Glide
+                                    Glide.with(requireContext())
+                                        .load(user.profilePicture)
+                                        .into(previewImage)
+                                } else {
+                                    // If no profile picture is available, you might want to set a default image
+                                    previewImage.setImageResource(R.drawable.boy_profile_picture)
+                                }
                             }
                         }
                     }
                 }
+
 
                 override fun onCancelled(error: DatabaseError) {
                     // Handle the error
