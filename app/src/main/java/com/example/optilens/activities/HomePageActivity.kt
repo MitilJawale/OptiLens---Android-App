@@ -14,7 +14,6 @@ import androidx.fragment.app.FragmentTransaction
 import com.example.optilens.R
 import com.example.optilens.fragments.HomeFragment
 import com.example.optilens.fragments.LensPowerFragment
-import com.example.optilens.fragments.ProfileFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -22,6 +21,7 @@ import com.google.firebase.ktx.Firebase
 class HomePageActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var tvToolbarTitle: TextView
     private lateinit var btnpower : Button
     private lateinit var btnLogout: Button
     private lateinit var btnProfile : Button

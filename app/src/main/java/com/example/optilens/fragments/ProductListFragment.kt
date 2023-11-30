@@ -52,13 +52,13 @@ class ProductListFragment : Fragment() {
         }
         else if(categoryId.equals("contactlens")){
             val adapter = productList?.contactlens?.let {
-                ProductAdapter(requireContext(), it, productList)
+                ProductAdapter(requireContext(), it)
             }
             recyclerView.adapter = adapter
         }
         else if(categoryId.equals("accessories")){
             val adapter = productList?.accessories?.let {
-                ProductAdapter(requireContext(), it, productList)
+                ProductAdapter(requireContext(), it)
             }
             recyclerView.adapter = adapter
         }

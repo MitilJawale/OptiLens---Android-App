@@ -19,6 +19,7 @@ import com.example.optilens.dataclass.ContactLens
 import com.example.optilens.dataclass.CartItem
 import com.example.optilens.dataclass.Eyeglass
 import com.example.optilens.dataclass.Product
+import com.example.optilens.dataclass.ProductCategory
 import com.example.optilens.dataclass.Sunglass
 import com.example.optilens.dataclass.WishlistItem
 import com.google.firebase.auth.FirebaseAuth
@@ -33,7 +34,7 @@ import com.squareup.picasso.Picasso
 
 class ProductAdapter(private val context: Context,
                      private val productList: List<Product>?,
-                     private val PROD: ProductCategory
+//                     private val PROD: ProductCategory
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -74,7 +75,12 @@ class ProductAdapter(private val context: Context,
         when (product) {
             is Eyeglass -> loadImageWithPicasso(eyeglass!!, holder.productImage)
             is Sunglass -> loadImageWithPicasso(sunglass!!, holder.productImage)
+            is ContactLens -> loadImageWithPicasso(contactlens!!, holder.productImage)
+            is Accessory -> loadImageWithPicasso(accessories!!, holder.productImage)
         }
+
+
+
         holder.addToCart.setOnClickListener {
             // Handle the click event for the addToCart button
             // For example, you can call the addToCart function here
@@ -217,12 +223,7 @@ class ProductAdapter(private val context: Context,
                     }
                 }
         // Load image using Picasso based on the product type
-        when (product) {
-            is Eyeglass -> loadImageWithPicasso(eyeglass!!, holder.productImage)
-            is Sunglass -> loadImageWithPicasso(sunglass!!, holder.productImage)
-            is ContactLens -> loadImageWithPicasso(contactlens!!, holder.productImage)
-            is Accessory -> loadImageWithPicasso(accessories!!, holder.productImage)
-        }
+
 
                 // Add the new item to the cart
                 currentCart.add(ci)
