@@ -3,6 +3,7 @@ package com.example.optilens.adapter
 import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.optilens.R
@@ -21,6 +23,8 @@ import com.example.optilens.dataclass.Eyeglass
 import com.example.optilens.dataclass.Product
 import com.example.optilens.dataclass.ProductCategory
 import com.example.optilens.dataclass.Sunglass
+import com.example.optilens.fragments.ProductDescriptionFragment
+import com.google.gson.Gson
 import com.example.optilens.dataclass.WishlistItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -29,6 +33,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Callback
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import com.squareup.picasso.Picasso
 
 
@@ -38,12 +44,22 @@ class ProductAdapter(private val context: Context,
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val productName: TextView = itemView.findViewById(R.id.tv_ProductName)
+        val productName: TextView = itemView.findViewById(R.id.tv_productName)
         val productPrice: TextView = itemView.findViewById(R.id.tv_ProductPrice)
         var productImage: ImageView = itemView.findViewById(R.id.iv_product)
         // Add other views as needed for product details
 
 
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val product = productList?.get(position)
+                    Log.d("Adapter1: ", product?.productName.toString())
+                    openProductImageViewFragment(product)
+                }
+            }
+        }
 
         var addToCart :Button= itemView.findViewById(R.id.btn_addToCart)
     }
@@ -298,7 +314,7 @@ class ProductAdapter(private val context: Context,
     private fun loadImageWithPicasso(product: Product, productImage: ImageView) {
         Picasso.get()
             .load(getProductImageURL(product))
-            .placeholder(R.drawable.contact_lens) // Replace with your placeholder drawable
+            .placeholder(R.drawable.baseline_cached_24) // Replace with your placeholder drawable
             .error(R.drawable.eye_care) // Replace with your error drawable
             .into(productImage, object : Callback {
                 override fun onSuccess() {
@@ -311,6 +327,37 @@ class ProductAdapter(private val context: Context,
                 }
             })
     }
+
+
+    private fun openProductImageViewFragment(product: Product?) {
+        val imageUrls = product?.getImageUrls() ?: emptyList()
+
+        val fragment = ProductDescriptionFragment()
+        val args = Bundle()
+
+        args.putStringArrayList("imageUrls", ArrayList(imageUrls))
+        args.putString("productName", product!!.productName)
+        args.putString("brand", product.brand)
+        args.putDouble("price", product.price)
+        args.putDouble("ratings", product.ratings.averageRating)
+        args.putString("framecolor", product.frameColor)
+        args.putString("numberofreviews", product.ratings.numberOfRatings.toString())
+        args.putString("productframestyle", product.productStyle)
+        args.putString("height", product.dimensions.height.toString())
+        args.putString("width", product.dimensions.width.toString())
+        args.putString("bridgesize", product.dimensions.bridgeSize.toString())
+        args.putString("templelength", product.dimensions.templeLength.toString())
+        args.putString("category", product.category)
+
+
+        fragment.arguments = args
+
+        (context as AppCompatActivity).supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_layout_main, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
 
 }
 

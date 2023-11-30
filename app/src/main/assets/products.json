@@ -6,7 +6,7 @@
       "category": "Eyewear",
       "brand": "Lenskart",
       "frameColor": "Black",
-      "frameStyle": "Rectangular",
+      "productStyle": "Rectangular",
       "gender": "Unisex",
       "dimensions": {
         "width": 140,
@@ -36,7 +36,7 @@
       "category": "Eyewear",
       "brand": "FashionEyes",
       "frameColor": "Blue",
-      "frameStyle": "Round",
+      "productStyle": "Round",
       "gender": "Female",
       "dimensions": {
         "width": 130,
@@ -66,7 +66,7 @@
       "category": "Eyewear",
       "brand": "RetroShades",
       "frameColor": "Brown",
-      "frameStyle": "Cat-Eye",
+      "productStyle": "Cat-Eye",
       "gender": "Unisex",
       "dimensions": {
         "width": 145,
@@ -96,7 +96,7 @@
       "category": "Eyewear",
       "brand": "ActiveEyes",
       "frameColor": "Black",
-      "frameStyle": "Wrap-Around",
+      "productStyle": "Wrap-Around",
       "gender": "Unisex",
       "dimensions": {
         "width": 150,
@@ -126,7 +126,7 @@
       "category": "Eyewear",
       "brand": "ClassicShades",
       "frameColor": "Silver",
-      "frameStyle": "Aviator",
+      "productStyle": "Aviator",
       "gender": "Unisex",
       "dimensions": {
         "width": 148,
@@ -158,7 +158,7 @@
       "category": "Eyewear",
       "brand": "ClassicShades",
       "frameColor": "Silver",
-      "frameStyle": "Aviator",
+      "productStyle": "Aviator",
       "lensMaterial": "Polycarbonate",
       "lensColor": "Green",
       "uvProtection": "100% UVA/UVB protection",
@@ -181,7 +181,7 @@
       "images": {
         "frontView": "https://images.ray-ban.com/is/image/RayBan/8056597641623__STD__shad__fr.png?impolicy=RB_Product&width=1024&bgc=%23f2f2f2",
         "sideView": "https://images.ray-ban.com/is/image/RayBan/8056597641623__STD__shad__qt.png?impolicy=RB_Product&width=1024&bgc=%23f2f2f2",
-        "backView": "https://cdn-gpcop.nitrocdn.com/LSmAaoIaQbZTlrRrASJSoBrphCJZVECh/assets/images/optimized/rev-b27ff6d/aoeyewear.com/app/uploads/2023/06/Tom-Cruise_Wimbledon-AO_3-7.9.22-1024x683.jpg"
+        "backView": "https://i.ebayimg.com/images/g/-IsAAOSw9w1jRHTm/s-l1600.jpg"
       }
     },
     {
@@ -190,7 +190,7 @@
       "category": "Eyewear",
       "brand": "GlamShades",
       "frameColor": "Tortoise",
-      "frameStyle": "Oversized",
+      "productStyle": "Oversized",
       "lensMaterial": "CR39",
       "lensColor": "Black",
       "uvProtection": "100% UVA/UVB protection",
@@ -222,7 +222,7 @@
       "category": "Eyewear",
       "brand": "RetroLuxe",
       "frameColor": "Black",
-      "frameStyle": "Cat-Eye",
+      "productStyle": "Cat-Eye",
       "lensMaterial": "CR39",
       "lensColor": "Brown",
       "uvProtection": "100% UVA/UVB protection",
@@ -254,7 +254,7 @@
       "category": "Eyewear",
       "brand": "AviatorClassics",
       "frameColor": "Gold",
-      "frameStyle": "Pilot",
+      "productStyle": "Pilot",
       "lensMaterial": "Polycarbonate",
       "lensColor": "Green",
       "uvProtection": "100% UVA/UVB protection",
@@ -286,7 +286,7 @@
       "category": "Eyewear",
       "brand": "ClassicShades",
       "frameColor": "Black",
-      "frameStyle": "Wayfarer",
+      "productStyle": "Wayfarer",
       "lensMaterial": "CR39",
       "lensColor": "Grey",
       "uvProtection": "100% UVA/UVB protection",
@@ -319,12 +319,13 @@
       "productName": "Dailies AquaComfort Plus Contact Lenses",
       "category": "Contact Lenses",
       "brand": "Alcon",
-      "lensType": "Daily Disposable",
+      "productStyle": "Daily Disposable",
       "material": "Hydrogel",
       "waterContent": 0.58,
       "spherePowerRange": "-20.00 to +6.00",
       "cylinderPowerRange": "-4.00 to +4.00",
       "availability": "In Stock",
+      "frameColor": "Not Applicable",
       "price": 19.99,
       "ratings": {
         "averageRating": 4.8,
@@ -353,7 +354,8 @@
       "productName": "Comprehensive Eyeglass Repair Kit",
       "category": "Accessories",
       "brand": "RepairMyGlasses",
-      "accessoryType": "Repair Kit",
+      "frameColor": "Not Applicable",
+      "productStyle": "Repair Kit",
       "color": "Silver",
       "price": 14.99,
       "ratings": {
@@ -376,7 +378,8 @@
       "productName": "Anti-Fog and Smudge-Resistant Eyeglass Cleaning Spray",
       "category": "Accessories",
       "brand": "ClearViewOptics",
-      "accessoryType": "Cleaning Spray",
+      "frameColor": "Not Applicable",
+      "productStyle": "Cleaning Spray",
       "size": "60ml",
       "price": 9.99,
       "ratings": {
@@ -399,7 +402,8 @@
       "productName": "Adjustable Eyeglass Cord with Clasps",
       "category": "Accessories",
       "brand": "EyeSecure",
-      "accessoryType": "Cord",
+      "frameColor": "Not Applicable",
+      "productStyle": "Cord",
       "color": "Black",
       "price": 14.99,
       "ratings": {
@@ -422,7 +426,8 @@
       "productName": "Protective Eyeglass Case with Microfiber Cleaning Cloth",
       "category": "Accessories",
       "brand": "EyeCareEssentials",
-      "accessoryType": "Case",
+      "frameColor": "Not Applicable",
+      "productStyle": "Case",
       "color": "Blue",
       "price": 19.99,
       "ratings": {
