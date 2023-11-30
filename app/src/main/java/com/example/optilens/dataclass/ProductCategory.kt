@@ -228,6 +228,3 @@ private fun parseProducts(array: JSONArray): List<Glasses> {
 
     return productList
 }
-
-
-

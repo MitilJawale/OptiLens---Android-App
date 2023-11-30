@@ -13,7 +13,6 @@
     <string name="price_format">$%.2f</string>
     <string name="ratings_format">%.1f</string>
     <string-array name="Gender">
-
         <item>Male</item>
         <item>Female</item>
         <item>Non-Binary</item>
@@ -22,4 +21,11 @@
     </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Profile">Profile</string>
+    <string name="Addtocart">Add to Cart</string>
+    <string name="Remove">Remove</string>
+    <string name="Eyecare">Eye Care for You</string>
+    <string name="left"> Left</string>
+    <string name="right">Right</string>
+    <string name="LensHeader">Enter Power from your Presciption</string>
+    <string name="Save">Save</string>
 </resources>

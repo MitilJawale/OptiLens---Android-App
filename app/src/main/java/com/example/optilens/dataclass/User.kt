@@ -19,8 +19,9 @@ data class User(
 data class WishlistItem(
     val productId: String,
     val productName: String
-) {
-    constructor() : this("","")
+){
+    // No-argument constructor required by Firebase
+    constructor() : this("", "")
 }
 
 data class CartItem(
@@ -28,7 +29,8 @@ data class CartItem(
     val productName: String? = null,
     val price: Double? = null
 ) {
-    constructor() : this(null,null,null)
+    // Add a no-argument constructor
+    constructor() : this(null, null, null)
 }
 
 data class Order(
