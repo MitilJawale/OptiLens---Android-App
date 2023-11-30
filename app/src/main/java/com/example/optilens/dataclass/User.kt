@@ -9,7 +9,7 @@ data class User(
     val email: String? = null,
     val password: String? = null,
     val gender: String? = null,
-    val profilePicture: String? = null,
+    val profilePicture: String? = "",
     val wishlist: List<WishlistItem> = emptyList(),
     val cart: List<CartItem> = emptyList(),
     val orders: List<Order> = emptyList(),

@@ -14,6 +14,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.optilens.R
+import com.example.optilens.dataclass.Accessory
+import com.example.optilens.dataclass.ContactLens
 import com.example.optilens.dataclass.CartItem
 import com.example.optilens.dataclass.Eyeglass
 import com.example.optilens.dataclass.Product
@@ -28,16 +30,20 @@ import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
-class ProductAdapter(
-    private val context: Context,
-    private val productList: List<Product>?,
-) :
-    RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+
+class ProductAdapter(private val context: Context,
+                     private val productList: List<Product>?,
+                     private val PROD: ProductCategory
+) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val productName: TextView = itemView.findViewById(R.id.tv_ProductName)
         val productPrice: TextView = itemView.findViewById(R.id.tv_ProductPrice)
         var productImage: ImageView = itemView.findViewById(R.id.iv_product)
+        // Add other views as needed for product details
+
+
+
         var addToCart :Button= itemView.findViewById(R.id.btn_addToCart)
     }
 
@@ -61,6 +67,8 @@ class ProductAdapter(
         // Find the eyeglass or sunglass with the matching productName
         val eyeglass = product?.let { findEyeglass(it.productName) }
         val sunglass = product?.let { findSunglass(it.productName) }
+        val contactlens = product?.let { findContactlens(it.productName) }
+        val accessories = product?.let { findAccessories(it.productName) }
 
         // Load image using Picasso based on the product type
         when (product) {
@@ -208,6 +216,13 @@ class ProductAdapter(
                         }
                     }
                 }
+        // Load image using Picasso based on the product type
+        when (product) {
+            is Eyeglass -> loadImageWithPicasso(eyeglass!!, holder.productImage)
+            is Sunglass -> loadImageWithPicasso(sunglass!!, holder.productImage)
+            is ContactLens -> loadImageWithPicasso(contactlens!!, holder.productImage)
+            is Accessory -> loadImageWithPicasso(accessories!!, holder.productImage)
+        }
 
                 // Add the new item to the cart
                 currentCart.add(ci)
@@ -239,6 +254,7 @@ class ProductAdapter(
         return productList?.size ?: 0
     }
 
+
     // Function to find eyeglass with matching productName
     private fun findEyeglass(productName: String): Eyeglass? {
         // Filter the eyeglasses based on productName
@@ -252,13 +268,30 @@ class ProductAdapter(
             ?.find { it.productName == productName }
     }
 
+    private fun findContactlens(productName: String): ContactLens? {
+        // Filter the eyeglasses based on productName
+        return productList?.filterIsInstance<ContactLens>()
+            ?.find { it.productName == productName }
+    }
+
+    private fun findAccessories(productName: String): Accessory? {
+        // Filter the eyeglasses based on productName
+        return productList?.filterIsInstance<Accessory>()
+            ?.find { it.productName == productName }
+    }
+
+
     private fun getProductImageURL(product: Product): String? {
         return when (product) {
             is Eyeglass -> product.images.frontView
             is Sunglass -> product.images.frontView
+            is ContactLens -> product.images.frontView
+            is Accessory -> product.images.frontView
             else -> null
         }
     }
+
+
 
     // Function to load image using Picasso
     private fun loadImageWithPicasso(product: Product, productImage: ImageView) {
@@ -277,4 +310,6 @@ class ProductAdapter(
                 }
             })
     }
+
 }
+

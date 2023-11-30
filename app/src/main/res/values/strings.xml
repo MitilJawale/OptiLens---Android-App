@@ -5,9 +5,9 @@
     <string name="Password">Password</string>
     <string name="Register">Register</string>
     <string name="Name">Name</string>
-    <string name="Address">Address\n</string>
+    <string name="Address">Address</string>
     <string name="BackToLogin">Back To Login</string>
-    <string name="Logout">logout</string>
+    <string name="Logout">Logout</string>
     <string name="Phone">Phone</string>
     <string name="UploadPicture">Upload Picture</string>
     <string-array name="Gender">
