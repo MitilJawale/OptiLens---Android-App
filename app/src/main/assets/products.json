@@ -2,6 +2,7 @@
   "eyeglasses": [
     {
       "productId": "LK123456",
+      "identifier": "eyeglasses",
       "productName": "Lenskart Premium Glasses",
       "category": "Eyewear",
       "brand": "Lenskart",
@@ -32,6 +33,7 @@
     },
     {
       "productId": "LK234567",
+      "identifier": "eyeglasses",
       "productName": "Trendy Eyewear",
       "category": "Eyewear",
       "brand": "FashionEyes",
@@ -62,6 +64,7 @@
     },
     {
       "productId": "LK345678",
+      "identifier": "eyeglasses",
       "productName": "Vintage Sunglasses",
       "category": "Eyewear",
       "brand": "RetroShades",
@@ -92,6 +95,7 @@
     },
     {
       "productId": "LK456789",
+      "identifier": "eyeglasses",
       "productName": "Sporty Sunglasses",
       "category": "Eyewear",
       "brand": "ActiveEyes",
@@ -122,6 +126,7 @@
     },
     {
       "productId": "LK567890",
+      "identifier": "eyeglasses",
       "productName": "Aviator Eyeglasses",
       "category": "Eyewear",
       "brand": "ClassicShades",
@@ -154,6 +159,7 @@
   "sunglasses": [
     {
       "productId": "LK567890",
+      "identifier": "sunglasses",
       "productName": "Aviator Sunglasses",
       "category": "Eyewear",
       "brand": "ClassicShades",
@@ -186,6 +192,7 @@
     },
     {
       "productId": "LK678901",
+      "identifier": "sunglasses",
       "productName": "Oversized Sunglasses",
       "category": "Eyewear",
       "brand": "GlamShades",
@@ -218,6 +225,7 @@
     },
     {
       "productId": "LK789012",
+      "identifier": "sunglasses",
       "productName": "Cat-Eye Sunglasses",
       "category": "Eyewear",
       "brand": "RetroLuxe",
@@ -250,6 +258,7 @@
     },
     {
       "productId": "LK890123",
+      "identifier": "sunglasses",
       "productName": "Pilot Sunglasses",
       "category": "Eyewear",
       "brand": "AviatorClassics",
@@ -282,6 +291,7 @@
     },
     {
       "productId": "LK901234",
+      "identifier": "sunglasses",
       "productName": "Wayfarer Sunglasses",
       "category": "Eyewear",
       "brand": "ClassicShades",
@@ -316,6 +326,7 @@
   "contactlens": [
     {
       "productId": "CL012345",
+      "identifier": "contactlens",
       "productName": "Dailies AquaComfort Plus Contact Lenses",
       "category": "Contact Lenses",
       "brand": "Alcon",
@@ -351,6 +362,7 @@
   "accessories": [
     {
       "productId": "EA234567",
+      "identifier": "accessories",
       "productName": "Comprehensive Eyeglass Repair Kit",
       "category": "Accessories",
       "brand": "RepairMyGlasses",
@@ -375,6 +387,7 @@
     },
     {
       "productId": "EA567890",
+      "identifier": "accessories",
       "productName": "Anti-Fog and Smudge-Resistant Eyeglass Cleaning Spray",
       "category": "Accessories",
       "brand": "ClearViewOptics",
@@ -393,12 +406,13 @@
       },
       "productDetails": {
         "effectiveCleaning": "Safely removes smudges, dust, and fingerprints",
-        "anti-fogFormula": "Prevents fogging and condensation",
-        "streak-freeResults": "Leaves eyeglasses clean and clear"
+        "antiFogFormula": "Prevents fogging and condensation",
+        "streakFreeResults": "Leaves eyeglasses clean and clear"
       }
     },
     {
       "productId": "EA678901",
+      "identifier": "accessories",
       "productName": "Adjustable Eyeglass Cord with Clasps",
       "category": "Accessories",
       "brand": "EyeSecure",
@@ -423,6 +437,7 @@
     },
     {
       "productId": "EA789012",
+      "identifier": "accessories",
       "productName": "Protective Eyeglass Case with Microfiber Cleaning Cloth",
       "category": "Accessories",
       "brand": "EyeCareEssentials",

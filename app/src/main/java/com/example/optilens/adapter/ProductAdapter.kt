@@ -76,7 +76,7 @@ class ProductAdapter(private val context: Context,
         val product = productList?.get(position)
 
         holder.productName.text = product?.productName
-        holder.productPrice.text = product?.price.toString()
+        holder.productPrice.text = "$".plus(product?.price.toString())
         holder.productImage.setImageResource(R.drawable.hard_wear_fv)
 
         val wishlistImage = holder.itemView.findViewById<ImageView>(R.id.iv_wishlistImage)
@@ -348,6 +348,88 @@ class ProductAdapter(private val context: Context,
         args.putString("bridgesize", product.dimensions.bridgeSize.toString())
         args.putString("templelength", product.dimensions.templeLength.toString())
         args.putString("category", product.category)
+        args.putString("identifier", product.identifier)
+
+        if(product.identifier == "contactlens") {
+            args.putString("material", productList?.filterIsInstance<ContactLens>() ?.find { it.productName == product.productName }?.material)
+            args.putString("watercontent", productList?.filterIsInstance<ContactLens>() ?.find { it.productName == product.productName }?.waterContent.toString())
+            args.putString("spherePR", productList?.filterIsInstance<ContactLens>() ?.find { it.productName == product.productName }?.spherePowerRange)
+            args.putString("cylinderPR", productList?.filterIsInstance<ContactLens>() ?.find { it.productName == product.productName }?.cylinderPowerRange)
+
+        }
+
+        if(product.identifier == "accessories") {
+            if(product.productName == "Comprehensive Eyeglass Repair Kit") {
+                args.putString("detail11", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.includes)
+                args.putString("detail22", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.easyToUse)
+                args.putString("detail33", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.versatile)
+
+                args.putString("detail1", "Include")
+                args.putString("detail2", "Easy to use")
+                args.putString("detail3", "Versatility")
+            }
+
+            if(product.productName == "Anti-Fog and Smudge-Resistant Eyeglass Cleaning Spray") {
+                args.putString("detail11", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.effectiveCleaning)
+                args.putString("detail22", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.antiFogFormula)
+                args.putString("detail33", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.streakFreeResults)
+
+                args.putString("detail1", "Cleaning")
+                args.putString("detail2", "Anti Fog Formula")
+                args.putString("detail3", "Streak Free")
+            }
+
+            if(product.productName == "Adjustable Eyeglass Cord with Clasps") {
+                args.putString("detail11", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.secureAttachment)
+                args.putString("detail22", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.adjustableLength)
+                args.putString("detail33", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.lightweightAndComfortable)
+
+                args.putString("detail1", "Attachment")
+                args.putString("detail2", "Adjustability")
+                args.putString("detail3", "Weight")
+            }
+
+            if(product.productName == "Protective Eyeglass Case with Microfiber Cleaning Cloth") {
+                args.putString("detail11", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.protectiveDesign)
+                args.putString("detail22", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.softInteriorLining)
+                args.putString("detail33", productList?.filterIsInstance<Accessory>() ?.find { it.productName == product.productName }?.productDetails?.includesCleaningCloth)
+
+                args.putString("detail1", "Design")
+                args.putString("detail2", "Feel")
+                args.putString("detail3", "Includes")
+            }
+
+        }
+
+
+        if(product.identifier == "eyeglasses") {
+            productList?.filterIsInstance<Eyeglass>() ?.find { it.productName == product.productName }?.specifications?.let { args.putBoolean("Speci", it.prescription) }
+            args.putString("uvProtection", productList?.filterIsInstance<Eyeglass>() ?.find { it.productName == product.productName }?.specifications?.uvProtection.toString())
+            args.putString("antiReflectiveCoating", productList?.filterIsInstance<Eyeglass>() ?.find { it.productName == product.productName }?.specifications?.antiReflectiveCoating.toString())
+
+        }
+
+
+        else if(product.identifier == "sunglasses") {
+            productList?.filterIsInstance<Sunglass>() ?.find { it.productName == product.productName }?.specifications?.let { args.putBoolean("Speci", it.prescription)}
+            args.putString("uvProtection", productList?.filterIsInstance<Sunglass>() ?.find { it.productName == product.productName }?.specifications?.uvProtection.toString())
+            args.putString("antiReflectiveCoating", productList?.filterIsInstance<Sunglass>() ?.find { it.productName == product.productName }?.specifications?.antiReflectiveCoating.toString())
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         fragment.arguments = args

@@ -7,6 +7,7 @@ import org.json.JSONObject
 
 interface Product {
     val productId: String
+    val identifier: String
     val productName: String
     val category: String
     val price: Double
@@ -22,6 +23,7 @@ interface Product {
 
 data class ConcreteProduct(
     override val productId: String,
+    override val identifier: String,
     override val productName: String,
     override val category: String,
     override val price: Double,
@@ -49,6 +51,7 @@ data class ProductCategory(
 
 data class Eyeglass(
     override val productId: String,
+    override val identifier: String,
     override val productName: String,
     override val category: String,
     override val brand: String,
@@ -68,6 +71,7 @@ data class Eyeglass(
 
 data class Sunglass(
     override val productId: String,
+    override val identifier: String,
     override val productName: String,
     override val category: String,
     override val brand: String,
@@ -89,6 +93,7 @@ data class Sunglass(
 
 data class ContactLens(
     override val productId: String,
+    override val identifier: String,
     override val productName: String,
     override val category: String,
     override val brand: String,
@@ -120,6 +125,7 @@ data class ContactLens(
 
 data class Accessory(
     override val productId: String,
+    override val identifier: String,
     override val productName: String,
     override val category: String,
     override val brand: String,
@@ -174,7 +180,25 @@ data class ProductDetails(
     val tinted: Boolean,
     val availableColors: List<String>,
     val recommendedUse: String,
-    val replacementSchedule: String
+    val replacementSchedule: String,
+
+    val includes: String,
+    val easyToUse: String,
+    val versatile: String,
+
+    val effectiveCleaning: String,
+    val antiFogFormula: String,
+    val streakFreeResults: String,
+
+    val secureAttachment: String,
+    val adjustableLength: String,
+    val lightweightAndComfortable: String,
+
+    val protectiveDesign: String,
+    val softInteriorLining: String,
+    val includesCleaningCloth: String,
+
+
 )
 
 
