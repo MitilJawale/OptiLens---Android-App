@@ -160,10 +160,13 @@ class ProductAdapter(private val context: Context,
                 if (snapshot.exists()) {
                     for (childSnapshot in snapshot.children) {
                         val item = childSnapshot.getValue(WishlistItem::class.java)
-                        Log.d("Wishlist",item.toString())
-                        item?.productId?.let { productIds.add(it) }
+                        item?.productId?.let {
+                            Log.d("Wishlist2",it)
+                            productIds.add(it)
+                        }
                     }
                 }
+                Log.d("ProductIds In Wishlist",productIds.toString())
 
                 callback(productIds)
             }
