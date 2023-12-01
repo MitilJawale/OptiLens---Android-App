@@ -15,6 +15,7 @@ import com.example.optilens.R
 import com.example.optilens.fragments.HomeFragment
 import com.example.optilens.fragments.LensPowerFragment
 import com.example.optilens.fragments.ProfileFragment
+import com.example.optilens.fragments.WishListFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -27,6 +28,7 @@ class HomePageActivity : AppCompatActivity() {
     private lateinit var btnLogout: Button
     private lateinit var btnProfile : Button
     private lateinit var toolbar : Toolbar
+    private lateinit var heartbtn:ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,12 +38,19 @@ class HomePageActivity : AppCompatActivity() {
         // Find all the views in your layout
         toolbar = findViewById(R.id.toolbar)
         tvToolbarTitle = findViewById(R.id.tv_toolbar_title)
-
+        heartbtn= findViewById(R.id.iv_wishlistImage)
 
         // On clicking "Optilens" in toolbar user to be returned to homepage
         tvToolbarTitle.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frame_layout_main, HomeFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        heartbtn.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_layout_main, WishListFragment())
                 .addToBackStack(null)
                 .commit()
         }

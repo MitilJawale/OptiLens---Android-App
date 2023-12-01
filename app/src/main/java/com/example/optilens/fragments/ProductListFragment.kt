@@ -33,7 +33,6 @@ class ProductListFragment : Fragment() {
 
         val applicationContext: Context = requireContext()// Replace with the actual application context
         val productList = readAndParseJsonFile(applicationContext, "products.json")
-
         // Now, the 'productList' contains all the products from the JSON
         val categoryId = arguments?.getString("categoryId")
 
