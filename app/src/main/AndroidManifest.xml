@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,14 +15,22 @@
         android:theme="@style/Theme.OptiLens"
         tools:targetApi="31">
         <activity
-            android:name=".activities.Register"
-            android:theme="@style/Theme.Material3.Light.NoActionBar"
+            android:name=".activities.PaymentPage"
             android:exported="false" />
         <activity
-            android:name=".activities.Login"
-            android:theme="@style/Theme.Material3.Light.NoActionBar"
-
+            android:name=".activities.CheckoutActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.SampleCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Register"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
+        <activity
+            android:name=".activities.Login"
+            android:exported="false"
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
         <activity
             android:name=".activities.SplashScreenActivity"
             android:exported="true">
@@ -28,8 +38,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".activities.HomePageActivity"
             android:exported="true">
@@ -37,18 +45,15 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

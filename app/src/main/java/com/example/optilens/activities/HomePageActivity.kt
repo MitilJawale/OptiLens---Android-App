@@ -24,6 +24,9 @@ class HomePageActivity : AppCompatActivity() {
     private lateinit var btnLogout: Button
     private lateinit var btnProfile : Button
 
+    //sample cart button
+    private lateinit var btnCart : Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +39,7 @@ class HomePageActivity : AppCompatActivity() {
         btnLogout = findViewById(R.id.btn_logout)
         btnpower = findViewById(R.id.btn_lens_power)
         btnProfile = findViewById(R.id.btn_profile)
+        btnCart = findViewById(R.id.btn_cart)
 
         val currentUser = auth.currentUser
         if (currentUser == null) {
@@ -46,6 +50,12 @@ class HomePageActivity : AppCompatActivity() {
         btnLogout.setOnClickListener(){
             Firebase.auth.signOut()
             val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        btnCart.setOnClickListener(){
+            val intent = Intent(this , SampleCartActivity::class.java)
             startActivity(intent)
             finish()
         }
