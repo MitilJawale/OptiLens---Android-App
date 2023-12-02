@@ -5,17 +5,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        android:weightSum="10">
 
         <ImageView
             android:id="@+id/gifImageView"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="0dp"
+            android:layout_weight="7"
             app:srcCompat="@raw/splash_screen_specs"/>
 
         <TextView

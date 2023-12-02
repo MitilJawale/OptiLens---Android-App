@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -158,7 +159,7 @@
 
     <View
         android:id="@+id/horizontal_line3"
-        android:layout_width="388dp"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#B8B0B2"
         app:layout_constraintTop_toBottomOf="@id/tv_productPrice"
@@ -199,7 +200,6 @@
                 android:padding="5dp"/>
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
@@ -222,56 +222,293 @@
                 android:background="@drawable/box"
                 android:padding="5dp"/>
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/ll_contactLens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/ll_contactLens_material"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/tv_uvProtection"
+                android:id="@+id/tv_material"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="UV Protection"
+                android:text="Material"
                 android:textColor="@color/light_gray"/>
 
             <TextView
-                android:id="@+id/tv_productUVProtection"
+                android:id="@+id/tv_productMaterial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Available"
+                android:text="Hydrogel"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:background="@drawable/box"
                 android:padding="5dp"/>
         </LinearLayout>
+
+
         <LinearLayout
+            android:id="@+id/ll_contactLens_watercontent"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/tv_antiReflectiveCoating"
+                android:id="@+id/tv_watercontent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AntiReflective Coating"
+                android:text="Water Content"
                 android:textColor="@color/light_gray"/>
 
             <TextView
-                android:id="@+id/tv_productAntiReflectiveCoating"
+                android:id="@+id/tv_productWatercontent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Available"
+                android:text="0.58"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
                 android:background="@drawable/box"
                 android:padding="5dp"/>
         </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_contactLens_spherePowerRange"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_spherePowerRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sphere Power Range"
+                android:textColor="@color/light_gray"/>
+
+            <TextView
+                android:id="@+id/tv_productSpherePowerRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-20.00  to  +6.00"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/box"
+                android:padding="5dp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ll_contactLens_cylinderPowerRange"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_cylinderPowerRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cylinder Power Range"
+                android:textColor="@color/light_gray"/>
+
+            <TextView
+                android:id="@+id/tv_productCylinderPowerRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-4.00  to  +4.00"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:background="@drawable/box"
+                android:padding="5dp"/>
+        </LinearLayout>
+        </LinearLayout>
+
+
+
+
+
+
+
+        <View
+            android:id="@+id/horizontal_line_below_gender"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#B8B0B2"
+            app:layout_constraintTop_toBottomOf="@id/tv_gender"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"/>
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_accessories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_accessoriesProductDetails1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail 1"
+                    android:textColor="@color/light_gray"/>
+
+                <TextView
+                    android:id="@+id/tv_accessoriesProductDetails11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Screwdriver, tweezers, nose pads, screws, cleaning cloth"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:padding="5dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_accessoriesProductDetails2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail 2"
+                    android:textColor="@color/light_gray"/>
+
+                <TextView
+                    android:id="@+id/tv_accessoriesProductDetails22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Screwdriver, tweezers, nose pads, screws, cleaning cloth"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:padding="5dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_accessoriesProductDetails3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detail 3"
+                    android:textColor="@color/light_gray"/>
+
+                <TextView
+                    android:id="@+id/tv_accessoriesProductDetails33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Screwdriver, tweezers, nose pads, screws, cleaning cloth"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:padding="5dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_eyeglass_sunglass"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/ll_prescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_prescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prescription"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/iv_productPrescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:src="@drawable/baseline_check_circle_24" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_uvProtection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="uvProtection"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/iv_productuvProtection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:src="@drawable/baseline_check_circle_24" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_antiReflectiveCoating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_antiReflectiveCoating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="antiReflectiveCoating"
+                    android:layout_gravity="center"/>
+
+                <ImageView
+                    android:id="@+id/iv_productantiReflectiveCoating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:src="@drawable/baseline_check_circle_24" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 
     <View
         android:id="@+id/horizontal_line4"
-        android:layout_width="388dp"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#B8B0B2"
         app:layout_constraintTop_toBottomOf="@id/LL"
@@ -293,90 +530,105 @@
         android:gravity="center">
 
         <!-- First Row with ImageViews -->
-        <TableRow>
+        <TableRow
+            android:weightSum="4">
             <ImageView
                 android:id="@+id/ivImage1"
                 android:layout_width="70dp"
                 android:layout_height="50dp"
                 android:src="@drawable/h"
-                android:layout_marginHorizontal="10dp"/>
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"/>
             <ImageView
                 android:id="@+id/ivImage2"
                 android:layout_width="70dp"
                 android:layout_height="50dp"
                 android:src="@drawable/w"
-                android:layout_marginHorizontal="10dp"/>
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"/>
             <ImageView
                 android:id="@+id/ivImage3"
                 android:layout_width="70dp"
                 android:layout_height="50dp"
                 android:src="@drawable/bs"
-                android:layout_marginHorizontal="10dp"/>
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"/>
 
             <ImageView
                 android:id="@+id/ivImage4"
                 android:layout_width="70dp"
                 android:layout_height="50dp"
                 android:src="@drawable/tl"
-                android:layout_marginHorizontal="10dp"/>
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="1"/>
         </TableRow>
 
         <!-- Second Row with TextViews -->
-        <TableRow>
+        <TableRow
+            android:weightSum="4">
             <TextView
                 android:id="@+id/tvText1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Height"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tvText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Width"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tvText3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bridge Size"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tvText9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Temple Length"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:layout_weight="1"/>
         </TableRow>
 
         <!-- Third Row with TextViews -->
         <TableRow
-            android:padding="5dp">
+            android:padding="5dp"
+            android:weightSum="4">
 
             <TextView
                 android:id="@+id/tvText4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="123"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tvText5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="456"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tvText6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="67"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tvText8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="000"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:layout_weight="1"/>
         </TableRow>
 
     </TableLayout>
