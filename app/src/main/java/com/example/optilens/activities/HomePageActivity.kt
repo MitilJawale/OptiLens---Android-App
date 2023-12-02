@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.optilens.R
+import com.example.optilens.fragments.AddToCartFragment
 import com.example.optilens.fragments.HomeFragment
 import com.example.optilens.fragments.LensPowerFragment
 import com.example.optilens.fragments.ProfileFragment
@@ -29,6 +30,8 @@ class HomePageActivity : AppCompatActivity() {
     private lateinit var btnProfile : Button
     private lateinit var toolbar : Toolbar
     private lateinit var heartbtn:ImageView
+    private lateinit var btnCart : Button
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,6 +64,7 @@ class HomePageActivity : AppCompatActivity() {
         btnLogout = findViewById(R.id.btn_logout)
         btnpower = findViewById(R.id.btn_lens_power)
         btnProfile = findViewById(R.id.btn_profile)
+        btnCart=findViewById(R.id.btn_cart)
 
         val currentUser = auth.currentUser
         if (currentUser == null) {
@@ -76,7 +80,12 @@ class HomePageActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
+        btnCart.setOnClickListener(){
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_layout_main, AddToCartFragment())
+                .addToBackStack(null)
+                .commit()
+        }
 
 
 
