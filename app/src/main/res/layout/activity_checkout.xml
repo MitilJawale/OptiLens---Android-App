@@ -3,8 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/bt_white"
     android:layout_height="match_parent"
     tools:context=".activities.CheckoutActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/basic_app_color"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="OptiLens"
+            android:textColor="@color/white"
+            android:textSize="21sp" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@android:color/transparent"
+            android:drawableLeft="@drawable/baseline_logout_24"
+            android:text="Log out" />
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <Button
         android:id="@+id/btnpay"
@@ -12,9 +44,219 @@
         android:layout_height="wrap_content"
         android:text="Continue to Payment"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="sans-serif-smallcaps"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:backgroundTint="@color/basic_app_color"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.84000003" />
+        app:layout_constraintVertical_bias="0.937" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Personal Details"
+        android:textColor="@color/basic_app_color"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <EditText
+        android:id="@+id/btnFName"
+        android:layout_width="133dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/light_app_color"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="First Name"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/btnLName"
+        android:layout_width="133dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/light_app_color"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Last Name"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.415"
+        app:layout_constraintStart_toEndOf="@+id/btnFName"
+        app:layout_constraintTop_toTopOf="@+id/btnFName" />
+
+    <EditText
+        android:id="@+id/btnEmail"
+        android:layout_width="315dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/light_app_color"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Email address"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnTextPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFName"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <EditText
+        android:id="@+id/btnTextPhone"
+        android:layout_width="315dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/light_app_color"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Mobile Number"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/textAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="288dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Address Details"
+        android:textColor="@color/basic_app_color"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <EditText
+        android:id="@+id/btnAddress1"
+        android:layout_width="315dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/light_app_color"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Address Line 1"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAddress" />
+
+
+    <EditText
+        android:id="@+id/btnAddress2"
+        android:layout_width="315dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/light_app_color"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+
+        android:hint="Address Line 2"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddress1" />
+
+    <EditText
+        android:id="@+id/btnCity"
+        android:layout_width="133dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/light_app_color"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="City"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/btnState"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddress2" />
+
+    <EditText
+        android:id="@+id/btnState"
+        android:layout_width="133dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="90dp"
+
+        android:background="@color/light_app_color"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="State"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddress2" />
+
+    <EditText
+        android:id="@+id/btnZip"
+        android:layout_width="133dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/light_app_color"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Zip"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnpay"
+        app:layout_constraintEnd_toStartOf="@+id/btnCountry"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCity"
+        app:layout_constraintVertical_bias="0.263" />
+
+    <EditText
+        android:id="@+id/btnCountry"
+        android:layout_width="133dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="90dp"
+        android:background="@color/light_app_color"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Country"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnpay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnState"
+        app:layout_constraintVertical_bias="0.263" />
+
+    <ImageButton
+        android:id="@+id/btnLocation"
+        android:layout_width="32dp"
+        android:layout_height="37dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAddress1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/light_app_color"
+        app:layout_constraintStart_toEndOf="@+id/btnAddress1"
+        app:layout_constraintTop_toTopOf="@+id/btnAddress1"
+        app:srcCompat="@android:drawable/ic_menu_mylocation" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

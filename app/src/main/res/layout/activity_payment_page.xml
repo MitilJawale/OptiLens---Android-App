@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_app_color"
+    android:background="@color/bt_white"
     tools:context=".activities.PaymentPage">
 
 
@@ -23,9 +23,17 @@
             android:layout_height="wrap_content"
             android:textSize="21sp"
             android:textColor="@color/white"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:text="OptiLens"
             android:fontFamily="sans-serif-medium"/>
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
 
         <Button
             android:id="@+id/btn_logout"
@@ -44,6 +52,7 @@
         android:layout_marginTop="120dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="20dp"
+        android:backgroundTint="@color/light_app_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         
@@ -70,6 +79,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Payment Details" />
+
+
 
 
 </RelativeLayout>
