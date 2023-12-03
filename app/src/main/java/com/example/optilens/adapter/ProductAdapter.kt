@@ -179,50 +179,50 @@ class ProductAdapter(private val context: Context,
     }
 
     private fun addToWishList(wl: WishlistItem) {
-            val userRef = getUserRef()
-            userRef.child("wishlist").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val currentWishlist = mutableListOf<WishlistItem>()
+        val userRef = getUserRef()
+        userRef.child("wishlist").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val currentWishlist = mutableListOf<WishlistItem>()
 
-                    if (snapshot.exists()) {
-                        for (childSnapshot in snapshot.children) {
-                            val item = childSnapshot.getValue(WishlistItem::class.java)
-                            if (item != null) {
-                                currentWishlist.add(item)
-                            }
+                if (snapshot.exists()) {
+                    for (childSnapshot in snapshot.children) {
+                        val item = childSnapshot.getValue(WishlistItem::class.java)
+                        if (item != null) {
+                            currentWishlist.add(item)
                         }
                     }
-                    // Check if the item is already in the wishlist
-                    val existingItem = currentWishlist.find { it.productId == wl.productId }
-                    if (existingItem == null) {
-                        // Item is not in the wishlist, add it
-                        currentWishlist.add(wl)
-                        Toast.makeText(context, "Added to wishlist", Toast.LENGTH_SHORT).show()
-                        Log.d("ProductAdapter", "Item added to wishlist: $wl")
-                    } else {
-                        // Item is already in the wishlist, remove it
-                        currentWishlist.remove(existingItem)
-                        Toast.makeText(context, "Removed from wishlist", Toast.LENGTH_SHORT).show()
-                        Log.d("ProductAdapter", "Item removed from wishlist: $existingItem")
+                }
+                // Check if the item is already in the wishlist
+                val existingItem = currentWishlist.find { it.productId == wl.productId }
+                if (existingItem == null) {
+                    // Item is not in the wishlist, add it
+                    currentWishlist.add(wl)
+                    Toast.makeText(context, "Added to wishlist", Toast.LENGTH_SHORT).show()
+                    Log.d("ProductAdapter", "Item added to wishlist: $wl")
+                } else {
+                    // Item is already in the wishlist, remove it
+                    currentWishlist.remove(existingItem)
+                    Toast.makeText(context, "Removed from wishlist", Toast.LENGTH_SHORT).show()
+                    Log.d("ProductAdapter", "Item removed from wishlist: $existingItem")
+                }
+
+                // Update the wishlist in the Realtime Database
+                userRef.child("wishlist").setValue(currentWishlist)
+                    .addOnSuccessListener {
+                        // Wishlist updated successfully
+                        Log.d("ProductAdapter", "Wishlist updated successfully")
                     }
+                    .addOnFailureListener { e ->
+                        // Handle the failure to update the wishlist
+                        Log.e("ProductAdapter", "Error updating wishlist", e)
+                    }
+            }
 
-                    // Update the wishlist in the Realtime Database
-                    userRef.child("wishlist").setValue(currentWishlist)
-                        .addOnSuccessListener {
-                            // Wishlist updated successfully
-                            Log.d("ProductAdapter", "Wishlist updated successfully")
-                        }
-                        .addOnFailureListener { e ->
-                            // Handle the failure to update the wishlist
-                            Log.e("ProductAdapter", "Error updating wishlist", e)
-                        }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    // Handle the error
-                    Log.e("ProductAdapter", "Database error", error.toException())
-                }
-            })
+            override fun onCancelled(error: DatabaseError) {
+                // Handle the error
+                Log.e("ProductAdapter", "Database error", error.toException())
+            }
+        })
 
     }
     private fun addToCart(ci: CartItem) {
@@ -241,7 +241,7 @@ class ProductAdapter(private val context: Context,
                         }
                     }
                 }
-        // Load image using Picasso based on the product type
+                // Load image using Picasso based on the product type
 
 
                 // Add the new item to the cart
@@ -445,4 +445,3 @@ class ProductAdapter(private val context: Context,
 
 
 }
-
