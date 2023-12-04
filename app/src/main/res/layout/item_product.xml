@@ -49,15 +49,16 @@
         android:id="@+id/tv_ProductPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="Price: $0.00" />
+        android:text="Price: $0.00"
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/btn_addToCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Addtocart"
-        android:drawableLeft="@drawable/baseline_shopping_cart_24" />
+        android:drawableLeft="@drawable/baseline_shopping_cart_24"
+        android:backgroundTint="@color/basic_app_color"/>
 
 
 

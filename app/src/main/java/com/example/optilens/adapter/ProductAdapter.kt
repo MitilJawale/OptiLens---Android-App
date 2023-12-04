@@ -76,7 +76,7 @@ class ProductAdapter(private val context: Context,
         val product = productList?.get(position)
 
         holder.productName.text = product?.productName
-        holder.productPrice.text = "$".plus(product?.price.toString())
+        holder.productPrice.text = "Price: $".plus(product?.price.toString())
         holder.productImage.setImageResource(R.drawable.hard_wear_fv)
 
         val wishlistImage = holder.itemView.findViewById<ImageView>(R.id.iv_wishlistImage)
