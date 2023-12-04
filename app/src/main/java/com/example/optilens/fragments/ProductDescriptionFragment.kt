@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TableLayout
@@ -37,6 +38,7 @@ class ProductDescriptionFragment : Fragment() {
     private lateinit var productPrescriptionIV: ImageView
     private lateinit var productUVProtectionIV: ImageView
     private lateinit var productARC_IV: ImageView
+    private lateinit var tryOn:Button
 
 
     private lateinit var productMaterialTextView: TextView
@@ -74,6 +76,7 @@ class ProductDescriptionFragment : Fragment() {
         productUVProtectionIV = view.findViewById(R.id.iv_productuvProtection)
         productARC_IV = view.findViewById(R.id.iv_productantiReflectiveCoating)
         llSpecifications = view.findViewById(R.id.ll_eyeglass_sunglass)
+        tryOn= view.findViewById(R.id.btn_tryOn)
 
         // Contact Lens Specifications
         productMaterialTextView = view.findViewById(R.id.tv_productMaterial)
@@ -164,6 +167,14 @@ class ProductDescriptionFragment : Fragment() {
             view.findViewById<View>(R.id.horizontal_line_below_gender).visibility = View.VISIBLE
             llSpecifications.visibility = View.VISIBLE
 
+        }
+
+
+        tryOn.setOnClickListener{
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frame_layout_main, TryOnFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
 
