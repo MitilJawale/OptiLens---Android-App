@@ -25,7 +25,7 @@ class ItemInCartAdapter(
     private val productList: List<Product>
 
 ) : RecyclerView.Adapter<ItemInCartAdapter.ViewHolder>() {
-    // ...
+
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

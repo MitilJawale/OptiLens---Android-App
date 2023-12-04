@@ -156,6 +156,17 @@
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="23sp"/>
+    <Button
+        android:id="@+id/btn_tryOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_productPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:backgroundTint="#406C0D"
+        android:text="@string/try_on"
+        android:gravity="center"
+        android:textSize="13sp"/>
 
     <View
         android:id="@+id/horizontal_line3"
