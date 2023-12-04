@@ -112,7 +112,8 @@ class ProfileFragment : Fragment() {
     }
 
     private fun chooseImage() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
     }
 
@@ -128,6 +129,7 @@ class ProfileFragment : Fragment() {
             uploadImageToFirebaseStorage(imageUri)
         }
     }
+
 
     private fun uploadImageToFirebaseStorage(imageUri: Uri) {
         val storageRef: StorageReference = FirebaseStorage.getInstance().reference
