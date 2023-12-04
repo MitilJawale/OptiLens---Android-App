@@ -56,7 +56,6 @@ class ItemInCartAdapter(
         btnDelete.setOnClickListener{
             val cartItem = CartItem(product?.productId.toString(), product?.productName.toString(), product?.price ?: 0.0)
             removeFromCart(cartItem)
-            notifyDataSetChanged()
 
         }
 
@@ -73,7 +72,7 @@ class ItemInCartAdapter(
     private fun removeFromCart(cartItem: CartItem) {
         val userRef = getUserRef()
 
-        userRef.child("cart").addValueEventListener(object : ValueEventListener {
+        userRef.child("cart").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 val currentCart = mutableListOf<CartItem>()

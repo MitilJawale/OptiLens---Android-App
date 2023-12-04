@@ -170,12 +170,12 @@ class ProductDescriptionFragment : Fragment() {
         }
 
 
-        tryOn.setOnClickListener{
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.frame_layout_main, TryOnFragment())
-                .addToBackStack(null)
-                .commit()
-        }
+//        tryOn.setOnClickListener{
+//            parentFragmentManager.beginTransaction()
+//                .replace(R.id.frame_layout_main, TryOnFragment())
+//                .addToBackStack(null)
+//                .commit()
+//        }
 
 
 
