@@ -44,6 +44,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activities.LoadingActivity"
+            android:exported="false" />
+        <activity android:name=".activities.OrderActivity"
+            android:exported="false" />
+
+
 
         <activity
             android:name=".activities.HomePageActivity"
