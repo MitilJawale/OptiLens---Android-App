@@ -4,14 +4,19 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.optilens.R
+import com.example.optilens.fragments.AddToCartFragment
 import com.example.optilens.fragments.HomeFragment
 import com.example.optilens.fragments.LensPowerFragment
 import com.example.optilens.fragments.ProfileFragment
+import com.example.optilens.fragments.WishListFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -19,27 +24,47 @@ import com.google.firebase.ktx.Firebase
 class HomePageActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var tvToolbarTitle: TextView
     private lateinit var btnpower : Button
-
     private lateinit var btnLogout: Button
     private lateinit var btnProfile : Button
-
-    //sample cart button
+    private lateinit var toolbar : Toolbar
+    private lateinit var heartbtn:ImageView
     private lateinit var btnCart : Button
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
 
-        // Find the Toolbar in your layout
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        // Find all the views in your layout
+        toolbar = findViewById(R.id.toolbar)
+        tvToolbarTitle = findViewById(R.id.tv_toolbar_title)
+        heartbtn= findViewById(R.id.iv_wishlistImage)
+
+        // On clicking "Optilens" in toolbar user to be returned to homepage
+        tvToolbarTitle.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_layout_main, HomeFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        heartbtn.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_layout_main, WishListFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+
 
         auth = Firebase.auth
         btnLogout = findViewById(R.id.btn_logout)
         btnpower = findViewById(R.id.btn_lens_power)
         btnProfile = findViewById(R.id.btn_profile)
-        btnCart = findViewById(R.id.btn_cart)
+        btnCart=findViewById(R.id.btn_cart)
 
         val currentUser = auth.currentUser
         if (currentUser == null) {
@@ -47,31 +72,34 @@ class HomePageActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+
         btnLogout.setOnClickListener(){
             Firebase.auth.signOut()
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
             finish()
         }
-
         btnCart.setOnClickListener(){
-            val intent = Intent(this , SampleCartActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-
-
-        btnProfile.setOnClickListener(){
             supportFragmentManager.beginTransaction()
-                .replace(R.id.frame_layout_main, ProfileFragment())
+                .replace(R.id.frame_layout_main, AddToCartFragment())
                 .addToBackStack(null)
                 .commit()
         }
 
+
+
+
         btnpower.setOnClickListener(){
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frame_layout_main, LensPowerFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        btnProfile.setOnClickListener(){
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_layout_main, ProfileFragment())
                 .addToBackStack(null)
                 .commit()
         }

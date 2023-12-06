@@ -16,23 +16,38 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/toolbar_title_text"
+            android:id="@+id/tv_toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="21sp"
             android:textColor="@color/white"
             android:gravity="center"
             android:text="OptiLens"
-            android:fontFamily="sans-serif-medium"/>
+            android:fontFamily="sans-serif-medium"
+            android:focusable="true"
+            android:clickable="true"/>
+
+
 
         <Button
             android:id="@+id/btn_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/baseline_logout_24"
-            android:text="Log out"
+            android:text="@string/Logout"
             android:backgroundTint="@android:color/transparent"
-            android:layout_gravity="end"/>
+            android:layout_gravity="right"
+            android:layout_marginStart="10dp"/>
+
+
+        <ImageView
+            android:id="@+id/iv_wishlistImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_favorite_24"
+            app:tint="#C54444"
+            android:layout_gravity="right"/>
+
 
     </androidx.appcompat.widget.Toolbar>
 

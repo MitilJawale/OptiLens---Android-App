@@ -1,7 +1,5 @@
 package com.example.optilens.dataclass
 
-import java.util.*
-
 data class User(
     val name: String? = null,
     val address: String? = null,
@@ -17,22 +15,27 @@ data class User(
 )
 
 data class WishlistItem(
-    val productId: Int,
+    val productId: String,
     val productName: String
-)
+){
+    // No-argument constructor required by Firebase
+    constructor() : this("", "")
+}
 
 data class CartItem(
-    val productId: Int,
-    val productName: String,
-    val price: Double,
-    val subtotal: Double
-)
+    val productId: String? = null,
+    val productName: String? = null,
+    val price: Double? = null
+) {
+    // Add a no-argument constructor
+    constructor() : this(null, null, null)
+}
 
 data class Order(
     val orderId: String,
-    val products: List<OrderedProduct>,
+    val products: List<CartItem>,
     val totalAmount: Double,
-    val orderDate: Date,
+    val orderDate: Long,
     val status: String
 )
 

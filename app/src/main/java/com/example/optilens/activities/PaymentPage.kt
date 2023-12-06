@@ -15,6 +15,8 @@ class PaymentPage : AppCompatActivity() {
     private lateinit var cardForm: CardForm
     private lateinit var btnBuy: Button
     private lateinit var btnBack: ImageButton
+    private val DELAY_TIME_MS: Long = 3000
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,18 +40,36 @@ class PaymentPage : AppCompatActivity() {
         cardForm.cvvEditText.inputType =
             InputType.TYPE_CLASS_NUMBER or InputType.TYPE_TEXT_VARIATION_PASSWORD
 
+//        btnBuy.setOnClickListener() {
+//            if (cardForm.isValid) {
+//                Toast.makeText(
+//                    this@PaymentPage, "Payment Done", Toast.LENGTH_LONG
+//                ).show()
+//            } else {
+//                Toast.makeText(this@PaymentPage, "Please fill all details", Toast.LENGTH_LONG)
+//                    .show()
+//            }
+       // }
+
         btnBuy.setOnClickListener() {
-            if (cardForm.isValid) {
-                Toast.makeText(
-                    this@PaymentPage, "Payment Done", Toast.LENGTH_LONG
-                ).show()
-            } else {
-                Toast.makeText(this@PaymentPage, "Please fill all details", Toast.LENGTH_LONG)
+
+            if (cardForm.isValid)
+            {
+                val intent = Intent(this , LoadingActivity::class.java)
+                startActivity(intent)
+
+                finish()
+
+            }
+            else {
+               Toast.makeText(this@PaymentPage, "Please fill all details", Toast.LENGTH_LONG)
                     .show()
             }
-        }
+
+
 
         btnBack.setOnClickListener() {
+
             val intent = Intent(this , CheckoutActivity::class.java)
             startActivity(intent)
 
@@ -57,4 +77,4 @@ class PaymentPage : AppCompatActivity() {
         }
     }
 
-}
+}}

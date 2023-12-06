@@ -5,13 +5,14 @@
     <string name="Password">Password</string>
     <string name="Register">Register</string>
     <string name="Name">Name</string>
-    <string name="Address">Address\n</string>
+    <string name="Address">Address</string>
     <string name="BackToLogin">Back To Login</string>
-    <string name="Logout">logout</string>
+    <string name="Logout">Logout</string>
     <string name="Phone">Phone</string>
     <string name="UploadPicture">Upload Picture</string>
+    <string name="price_format">$%.2f</string>
+    <string name="ratings_format">%.1f</string>
     <string-array name="Gender">
-
         <item>Male</item>
         <item>Female</item>
         <item>Non-Binary</item>
@@ -20,4 +21,15 @@
     </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Profile">Profile</string>
+    <string name="Addtocart">Add to Cart</string>
+    <string name="Remove">Remove</string>
+    <string name="Eyecare">Eye Care for You</string>
+    <string name="left"> Left</string>
+    <string name="right">Right</string>
+    <string name="LensHeader">Enter Power from your Presciption</string>
+    <string name="Save">Save</string>
+    <string name="your_wishlist">Your WishList</string>
+    <string name="place_order">Place Order</string>
+    <string name="Your_cart">Your Cart</string>
+    <string name="no_items_in_cart_yet">No Items In Cart yet\nContinue Shopping?</string>
 </resources>

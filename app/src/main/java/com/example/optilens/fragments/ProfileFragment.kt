@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.optilens.R
 import com.example.optilens.dataclass.User
 import com.google.firebase.auth.FirebaseAuth
@@ -54,10 +56,6 @@ class ProfileFragment : Fragment() {
         txtPassword = view.findViewById(R.id.txt_Password)
         database = FirebaseDatabase.getInstance().reference
 
-
-        previewImage.setImageResource(R.drawable.boy_profile_picture)
-
-        // Load user data and display
         loadUserData()
 
         selectImage.setOnClickListener {
@@ -76,20 +74,31 @@ class ProfileFragment : Fragment() {
 
             userRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.exists()) {
-                        val user = snapshot.getValue(User::class.java)
+                    if (isAdded) {
+                        if (snapshot.exists()) {
+                            val user = snapshot.getValue(User::class.java)
 
-                        if (user != null) {
-                            // Display user information
-                            txtName.text = "Name : "+ user.name
-                            txtAddress.text = "Address : "+ user.address
-                            txtEmail.text ="Address : "+ user.email
-                            txtPhone.text="Phone Number : "+user.phoneNumber
-                            txtPassword.text="Password : "+user.password
-
+                            if (user != null) {
+                                // Display user information
+                                txtName.text = "Name : "+ user.name
+                                txtAddress.text = "Address : "+ user.address
+                                txtEmail.text ="Address : "+ user.email
+                                txtPhone.text="Phone Number : "+user.phoneNumber
+                                txtPassword.text="Password : "+user.password
+                                if (user.profilePicture != " ") {
+                                    // Load and display profile picture using Glide
+                                    Glide.with(requireContext())
+                                        .load(user.profilePicture)
+                                        .into(previewImage)
+                                } else {
+                                    // If no profile picture is available, you might want to set a default image
+                                    previewImage.setImageResource(R.drawable.boy_profile_picture)
+                                }
+                            }
                         }
                     }
                 }
+
 
                 override fun onCancelled(error: DatabaseError) {
                     // Handle the error
@@ -108,6 +117,8 @@ class ProfileFragment : Fragment() {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             val imageUri: Uri = data.data!!
+
+            Log.d("ImageUri", imageUri.toString())
 
             previewImage.setImageURI(imageUri)
             uploadImageToFirebaseStorage(imageUri)

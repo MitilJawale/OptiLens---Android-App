@@ -22,6 +22,7 @@ import android.widget.Toast
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import androidx.core.app.ActivityCompat
+import com.example.optilens.dataclass.LensPrescription
 import com.example.optilens.dataclass.User
 import com.google.android.gms.tasks.OnSuccessListener
 
@@ -35,9 +36,7 @@ import com.google.firebase.database.ValueEventListener
 import java.io.IOException
 import java.util.Locale
 
-
 class CheckoutActivity : AppCompatActivity() {
-
 
     private lateinit var btn_pay: Button
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -65,14 +64,12 @@ class CheckoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
 
-
         btn_pay = findViewById(R.id.btnpay)
         btn_pay.setOnClickListener() {
             val intent = Intent(this, PaymentPage::class.java)
             startActivity(intent)
             finish()
         }
-
 
         txtAddress1 = findViewById(R.id.btnAddress1)
         txtCity = findViewById(R.id.btnCity)
@@ -85,60 +82,12 @@ class CheckoutActivity : AppCompatActivity() {
         txtEmail = findViewById(R.id.btnEmail)
         txtNumber = findViewById(R.id.btnTextPhone)
 
-
-
-
-
-
-
-
-
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         btnLocation.setOnClickListener() {
             getlastlocation()
         }
     }
-
-
-
-//    private fun loadUserData() {
-//        val currentUser = FirebaseAuth.getInstance().currentUser
-//
-//        if (currentUser != null) {
-//            val userId = currentUser.uid
-//            val userRef = database.child("Users").child(userId)
-//
-//            userRef.addValueEventListener(object : ValueEventListener {
-//                override fun onDataChange(snapshot: DataSnapshot) {
-//                    if (snapshot.exists()) {
-//                        val user = snapshot.getValue(User::class.java)
-//
-//                        if (user != null) {
-//                            // Display user information
-//
-////                            txtFName.setText(user.name ?: "")
-////                            txtEmail.setText(user.email ?: "")
-////                            txtNumber.setText(user.phoneNumber ?: "")
-//                            txtFName.text = user.name
-//                            //txtAddress.text = "Address : "+ user.address
-//                            txtEmail.text =user.email
-//                            txtNumber.text=user.phoneNumber
-//                            //txtPassword.text="Password : "+user.password
-//
-//                        }
-//                    }
-//                }
-//
-//                override fun onCancelled(error: DatabaseError) {
-//                    TODO("Not yet implemented")
-//                }
-//
-//            })
-//        }
-//    }
-
-
 
     private fun getlastlocation() {
 
