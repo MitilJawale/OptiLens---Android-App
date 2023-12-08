@@ -185,7 +185,7 @@ class OrderActivity : AppCompatActivity() {
                         txt_OrderID.text = orderId
                         txt_OrderStatus.text = order.status
 
-                        userRef.child("Orders").child(orderId).setValue(order)
+                        userRef.child("orders").child(orderId).setValue(order)
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     // Order successfully placed
