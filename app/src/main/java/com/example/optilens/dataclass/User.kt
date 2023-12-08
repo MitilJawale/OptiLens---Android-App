@@ -31,13 +31,24 @@ data class CartItem(
     constructor() : this(null, null, null)
 }
 
+//data class Order(
+//    val orderId: MutableList<String>,
+//    val products: List<CartItem>,
+//    val totalAmount: Double,
+//    val orderDate: Long,
+//    val status: String
+//)
+
 data class Order(
     val orderId: String,
     val products: List<CartItem>,
     val totalAmount: Double,
     val orderDate: Long,
     val status: String
-)
+){
+    // No-argument constructor required by Firebase
+    constructor() : this("", emptyList(), 0.0, 0, "")
+}
 
 data class OrderedProduct(
     val productId: Int,

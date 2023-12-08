@@ -52,92 +52,72 @@ class OrderActivity : AppCompatActivity() {
         displayCartItems()
 
     }
-//    private fun fetchDataFromFirebase() {
-    // Assuming you have a "data" node in your Firebase database
-//
+
+//    private fun displayCartItems() {
 //        val currentUser = FirebaseAuth.getInstance().currentUser
-//        //var pricee = txt_OrderAmt.text.toString().toDoubleOrNull()
+//
 //        if (currentUser != null) {
 //            val userId = currentUser.uid
-//            val userRef = databaseReference.child("OptiLens").child(userId)
+//            val userRef = databaseReference.child("Users").child(userId)
 //
-//            userRef.addValueEventListener(object : ValueEventListener {
+//            userRef.addListenerForSingleValueEvent(object : ValueEventListener {
 //                override fun onDataChange(dataSnapshot: DataSnapshot) {
-//                    if (dataSnapshot.exists()) {
-//                        val dataValue = dataSnapshot.getValue(CartItem::class.java)
 //
-//                        if (dataValue != null) {
-//                            val stringValue = dataValue?.toString()?.toDouble() ?: "N/A"
+//                    val user = dataSnapshot.getValue(User::class.java)
 //
-//                            // Set the value directly to the TextView using Kotlin Android Extensions
-//                            txt_OrderAmt.text = stringValue.price
-//                            //txt_OrderAmt = dataValue.price
+//
+//                    user?.let {
+//                        val cartItems = it.cart
+//                        val cartInfo = StringBuilder()
+//                        var totalCartValue = 0.0
+//
+//                        for (cartItem in cartItems) {
+//                            cartInfo.append(
+//                                "Product ID: ${cartItem.productId}\n" +
+//                                        "Product Name: ${cartItem.productName}\n" +
+//                                        "Price: ${cartItem.price}\n"
+//                            )
 //                        }
+//                        for (cartItem in cartItems) {
+//                            cartItem.price?.let { price ->
+//                                totalCartValue += price
+//                            }
 //
+//                            txt_OrderAmt.text = totalCartValue.toString()
+//                            txt_ProductName.text = cartInfo.toString()
+//                        }
+//                       // orderId = orderId,
+//
+//                       // val orderId = generateOrderId(userId) // Generate the order ID
+//                        val order = Order(
+//                            orderId = mutableListOf(),
+//                            products = it.cart,
+//                            totalAmount = totalCartValue,
+//                            orderDate = System.currentTimeMillis(), // Timestamp of the order date
+//                            status = "Pending"
+//                        )
+//
+//                        //txt_OrderID.text = orderId
+//                        txt_OrderStatus.text = order.status
+//
+//                        userRef.child("User").child("orders").setValue(order)
+//                            .addOnCompleteListener { task ->
+//                                if (task.isSuccessful) {
+//                                    // Order successfully placed
+//                                } else {
+//                                    // Failed to place the order
+//                                }
+//                            }
 //                    }
 //                }
 //
-//                override fun onCancelled(error: DatabaseError) {
-//                    // Failed to read value
-//                    // Log.d("FirebaseData", "Failed to read value: $error")
-//                }
-//            })
-//
-//        }
-//    }
-//}
-
-//
-//    private fun loadUserData() {
-//        val currentUser = FirebaseAuth.getInstance().currentUser
-//
-//        if (currentUser != null) {
-//            val userId = currentUser.uid
-//            val userRef = databaseReference.child("User").child(userId)
-//
-//            userRef.addValueEventListener(object : ValueEventListener {
-//                override fun onDataChange(snapshot: DataSnapshot) {
-//
-//                        if (snapshot.exists()) {
-//                            val user = snapshot.getValue(CartItem::class.java)
-//
-//                            if (user != null) {
-//
-//                                val orderAmount = user.price // Default value if 'price' is null
-//                                txt_OrderAmt.text = orderAmount.toString()
-//                                txt_ProductName.text = user.productName
-//
-//
-//
-
-
-    // txt_OrderAmt = user.price
-//                                // Display user information
-//                                txtName.text = "Name : "+ user.name
-//                                txtAddress.text = "Address : "+ user.address
-//                                txtEmail.text ="Address : "+ user.email
-//                                txtPhone.text="Phone Number : "+user.phoneNumber
-//                                txtPassword.text="Password : "+user.password
-//                                if (user.profilePicture != " ") {
-//                                    // Load and display profile picture using Glide
-//                                    Glide.with(requireContext())
-//                                        .load(user.profilePicture)
-//                                        .into(previewImage)
-//                                } else {
-//                                    // If no profile picture is available, you might want to set a default image
-//                                    previewImage.setImageResource(R.drawable.boy_profile_picture)
-//                                }
-//                            }
-//                        }
-//
-//
-//                    override fun onCancelled(error: DatabaseError) {
-//                    // Handle the error
+//                override fun onCancelled(databaseError: DatabaseError) {
+//                    // Handle error
 //                }
 //            })
 //        }
 //    }
-//}
+//
 
 
     private fun displayCartItems() {
@@ -163,15 +143,15 @@ class OrderActivity : AppCompatActivity() {
                                         "Price: ${cartItem.price}\n"
                             )
                         }
+
                         for (cartItem in cartItems) {
                             cartItem.price?.let { price ->
                                 totalCartValue += price
                             }
-
-                            txt_OrderAmt.text = totalCartValue.toString()
-                            txt_ProductName.text = cartInfo.toString()
                         }
 
+                        txt_OrderAmt.text = totalCartValue.toString()
+                        txt_ProductName.text = cartInfo.toString()
 
                         val orderId = generateOrderId(userId) // Generate the order ID
                         val order = Order(
@@ -185,14 +165,38 @@ class OrderActivity : AppCompatActivity() {
                         txt_OrderID.text = orderId
                         txt_OrderStatus.text = order.status
 
-                        userRef.child("orders").child(orderId).setValue(order)
-                            .addOnCompleteListener { task ->
-                                if (task.isSuccessful) {
-                                    // Order successfully placed
-                                } else {
-                                    // Failed to place the order
+                        // Fetch the existing orders to avoid overwriting them
+                        userRef.child("orders").addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                val currentOrders = mutableListOf<Order>()
+
+                                if (snapshot.exists()) {
+                                    for (childSnapshot in snapshot.children) {
+                                        val existingOrder = childSnapshot.getValue(Order::class.java)
+                                        if (existingOrder != null) {
+                                            currentOrders.add(existingOrder)
+                                        }
+                                    }
                                 }
+
+                                // Add the new order to the list of orders
+                                currentOrders.add(order)
+
+                                // Update the "orders" node in the Realtime Database
+                                userRef.child("orders").setValue(currentOrders)
+                                    .addOnCompleteListener { task ->
+                                        if (task.isSuccessful) {
+                                            // Order successfully placed
+                                        } else {
+                                            // Failed to place the order
+                                        }
+                                    }
                             }
+
+                            override fun onCancelled(error: DatabaseError) {
+                                // Handle the error
+                            }
+                        })
                     }
                 }
 
