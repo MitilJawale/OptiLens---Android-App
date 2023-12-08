@@ -124,7 +124,7 @@ class AddToCartFragment : Fragment(){
     private fun getCartProductIds(callback: (List<String>) -> Unit) {
         val userRef = getUserRef()
 
-        userRef.child("cart").addListenerForSingleValueEvent(object : ValueEventListener {
+        userRef.child("cart").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 //                reloadFragment()
                 val productIds = mutableListOf<String>()
@@ -152,7 +152,7 @@ class AddToCartFragment : Fragment(){
     private fun getCartPrice(callback: (List<Double>) -> Unit) {
         val userRef = getUserRef()
 
-        userRef.child("cart").addListenerForSingleValueEvent(object : ValueEventListener {
+        userRef.child("cart").addValueEventListener(object : ValueEventListener {
 
             override fun onDataChange(snapshot: DataSnapshot) {
 

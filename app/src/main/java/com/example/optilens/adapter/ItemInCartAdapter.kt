@@ -23,8 +23,9 @@ import com.google.firebase.database.ValueEventListener
 class ItemInCartAdapter(
     private val context: Context,
     private val productList: List<Product>
+
 ) : RecyclerView.Adapter<ItemInCartAdapter.ViewHolder>() {
-    // ...
+
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -56,7 +57,6 @@ class ItemInCartAdapter(
         btnDelete.setOnClickListener{
             val cartItem = CartItem(product?.productId.toString(), product?.productName.toString(), product?.price ?: 0.0)
             removeFromCart(cartItem)
-
         }
 
     }
@@ -116,4 +116,5 @@ class ItemInCartAdapter(
             }
         })
     }
+
 }

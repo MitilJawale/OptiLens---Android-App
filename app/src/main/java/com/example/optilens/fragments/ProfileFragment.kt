@@ -108,7 +108,8 @@ class ProfileFragment : Fragment() {
     }
 
     private fun chooseImage() {
-        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
     }
 
@@ -116,14 +117,24 @@ class ProfileFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
-            val imageUri: Uri = data.data!!
+            try {
+                val imageUri: Uri = data.data!!
 
-            Log.d("ImageUri", imageUri.toString())
+                Log.d("ImageUri", imageUri.toString())
 
-            previewImage.setImageURI(imageUri)
-            uploadImageToFirebaseStorage(imageUri)
+                previewImage.setImageURI(imageUri)
+                uploadImageToFirebaseStorage(imageUri)
+            } catch (e: Exception) {
+                Log.e("ImageSelectionError", "Error handling selected image", e)
+                // Handle the error appropriately, e.g., show a toast or log additional details
+            }
+        } else {
+            Log.e("ImageSelectionError", "Image selection failed. requestCode: $requestCode, resultCode: $resultCode")
+            // Handle the error appropriately, e.g., show a toast or log additional details
         }
     }
+
+
 
     private fun uploadImageToFirebaseStorage(imageUri: Uri) {
         val storageRef: StorageReference = FirebaseStorage.getInstance().reference
