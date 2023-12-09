@@ -13,7 +13,8 @@
         android:background="@color/basic_app_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center">
+        android:gravity="center"
+        app:popupTheme="@style/Theme.AppCompat.DayNight.DarkActionBar">
 
         <TextView
             android:id="@+id/tv_toolbar_title"
