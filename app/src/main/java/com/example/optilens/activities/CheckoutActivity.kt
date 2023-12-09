@@ -9,30 +9,20 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.optilens.R
 import android.Manifest
-import android.content.Context
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
-import android.location.LocationManager
 import android.location.LocationRequest
-import android.util.Log
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import androidx.core.app.ActivityCompat
-import com.example.optilens.dataclass.LensPrescription
-import com.example.optilens.dataclass.User
-import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.auth.ktx.auth
 
-import com.google.android.gms.tasks.Task
-import com.google.android.material.chip.Chip
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
 import java.io.IOException
 import java.util.Locale
 
@@ -51,6 +41,8 @@ class CheckoutActivity : AppCompatActivity() {
     private lateinit var txtLName : EditText
     private lateinit var txtEmail : EditText
     private lateinit var txtNumber : EditText
+    private lateinit var tvToolbarTitleText : TextView
+    private lateinit var btnLogOut : Button
     private var PERMISSION_ID = 1010
     lateinit var locationRequest: LocationRequest
     private lateinit var database: DatabaseReference
@@ -71,21 +63,35 @@ class CheckoutActivity : AppCompatActivity() {
             finish()
         }
 
-        txtAddress1 = findViewById(R.id.btnAddress1)
-        txtCity = findViewById(R.id.btnCity)
-        txtState = findViewById(R.id.btnState)
-        txtZip = findViewById(R.id.btnZip)
-        txtCountry = findViewById(R.id.btnCountry)
+        txtAddress1 = findViewById(R.id.et_addressLine1)
+        txtCity = findViewById(R.id.et_city)
+        txtState = findViewById(R.id.et_state)
+        txtZip = findViewById(R.id.et_zip)
+        txtCountry = findViewById(R.id.et_country)
         btnLocation = findViewById(R.id.btnLocation)
-        txtFName = findViewById(R.id.btnFName)
-        txtLName = findViewById(R.id.btnLName)
-        txtEmail = findViewById(R.id.btnEmail)
-        txtNumber = findViewById(R.id.btnTextPhone)
+        txtFName = findViewById(R.id.et_firstName)
+        txtLName = findViewById(R.id.et_lastName)
+        txtEmail = findViewById(R.id.et_emailAddress)
+        txtNumber = findViewById(R.id.et_mobileNumber)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         btnLocation.setOnClickListener() {
             getlastlocation()
+        }
+
+        tvToolbarTitleText = findViewById(R.id.toolbar_title_text)
+        tvToolbarTitleText.setOnClickListener{
+            val intent = Intent(this, HomePageActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnLogOut = findViewById(R.id.btn_logout)
+        btnLogOut.setOnClickListener(){
+            Firebase.auth.signOut()
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
