@@ -20,6 +20,14 @@
         android:theme="@style/Theme.OptiLens"
         tools:targetApi="31">
         <activity
+            android:name=".activities.StoreLocationActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_map_api_key" />
+
+        <activity
             android:name=".activities.YourOrdersActivity"
             android:exported="false" />
         <activity
