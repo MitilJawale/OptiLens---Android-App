@@ -3,11 +3,13 @@ package com.example.optilens.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.optilens.R
 import com.example.optilens.dataclass.Order
 import com.example.optilens.dataclass.User
+import com.example.optilens.fragments.HomeFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -20,10 +22,13 @@ class OrderActivity : AppCompatActivity() {
 
     //private lateinit var binding : ActivityOrderActivityBinding
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var database: DatabaseReference
+
     private lateinit var txt_OrderAmt: TextView
     private lateinit var txt_ProductName: TextView
     private lateinit var txt_OrderID : TextView
     private lateinit var txt_OrderStatus : TextView
+    private lateinit var optiLens:TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +36,8 @@ class OrderActivity : AppCompatActivity() {
         setContentView(R.layout.activity_order)
 
         databaseReference = FirebaseDatabase.getInstance().reference
+        database= FirebaseDatabase.getInstance().reference
+
         //fetchDataFromFirebase()
 
 
@@ -39,6 +46,7 @@ class OrderActivity : AppCompatActivity() {
         txt_ProductName = findViewById(R.id.txt_ProductName)
         txt_OrderID = findViewById(R.id.txt_OrderId2)
         txt_OrderStatus = findViewById(R.id.txt_Status1)
+        optiLens= findViewById(R.id.toolbar_title_text)
 
         //  pricee = txt_OrderAmt.text.toString().toDoubleOrNull()
 
@@ -50,74 +58,15 @@ class OrderActivity : AppCompatActivity() {
         imageView.startAnimation(animation)
 
         displayCartItems()
+        optiLens.setOnClickListener{
+            deleteCart()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_layout_main, HomeFragment())
+                .addToBackStack(null)
+                .commit()
+        }
 
     }
-
-//    private fun displayCartItems() {
-//        val currentUser = FirebaseAuth.getInstance().currentUser
-//
-//        if (currentUser != null) {
-//            val userId = currentUser.uid
-//            val userRef = databaseReference.child("Users").child(userId)
-//
-//            userRef.addListenerForSingleValueEvent(object : ValueEventListener {
-//                override fun onDataChange(dataSnapshot: DataSnapshot) {
-//
-//                    val user = dataSnapshot.getValue(User::class.java)
-//
-//
-//                    user?.let {
-//                        val cartItems = it.cart
-//                        val cartInfo = StringBuilder()
-//                        var totalCartValue = 0.0
-//
-//                        for (cartItem in cartItems) {
-//                            cartInfo.append(
-//                                "Product ID: ${cartItem.productId}\n" +
-//                                        "Product Name: ${cartItem.productName}\n" +
-//                                        "Price: ${cartItem.price}\n"
-//                            )
-//                        }
-//                        for (cartItem in cartItems) {
-//                            cartItem.price?.let { price ->
-//                                totalCartValue += price
-//                            }
-//
-//                            txt_OrderAmt.text = totalCartValue.toString()
-//                            txt_ProductName.text = cartInfo.toString()
-//                        }
-//                       // orderId = orderId,
-//
-//                       // val orderId = generateOrderId(userId) // Generate the order ID
-//                        val order = Order(
-//                            orderId = mutableListOf(),
-//                            products = it.cart,
-//                            totalAmount = totalCartValue,
-//                            orderDate = System.currentTimeMillis(), // Timestamp of the order date
-//                            status = "Pending"
-//                        )
-//
-//                        //txt_OrderID.text = orderId
-//                        txt_OrderStatus.text = order.status
-//
-//                        userRef.child("User").child("orders").setValue(order)
-//                            .addOnCompleteListener { task ->
-//                                if (task.isSuccessful) {
-//                                    // Order successfully placed
-//                                } else {
-//                                    // Failed to place the order
-//                                }
-//                            }
-//                    }
-//                }
-//
-//                override fun onCancelled(databaseError: DatabaseError) {
-//                    // Handle error
-//                }
-//            })
-//        }
-//    }
-//
 
 
     private fun displayCartItems() {
@@ -207,8 +156,36 @@ class OrderActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun generateOrderId(userId: String): String {
         // Implement your logic to generate an order ID
         return "${userId}_${UUID.randomUUID()}"
     }
+
+
+
+    private fun deleteCart() {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+
+        if (currentUser != null) {
+            val userId = currentUser.uid
+            val userRef = databaseReference.child("Users").child(userId).child("cart")
+
+            userRef.removeValue()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Cart deleted successfully
+                        // You can add any additional actions you want to perform after deleting the cart
+                    } else {
+                        // Failed to delete the cart
+                        // Handle the error accordingly
+                    }
+                }
+        }
     }
+
+
+
+}
+
