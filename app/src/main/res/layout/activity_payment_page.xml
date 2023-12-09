@@ -23,17 +23,17 @@
             android:layout_height="wrap_content"
             android:textSize="21sp"
             android:textColor="@color/white"
-            android:layout_gravity="center"
+            android:layout_gravity="start"
             android:text="OptiLens"
             android:fontFamily="sans-serif-medium"/>
 
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:backgroundTint="@android:color/transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            app:srcCompat="@android:drawable/ic_menu_revert" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/btn_back"-->
+<!--            android:backgroundTint="@android:color/transparent"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="left"-->
+<!--            app:srcCompat="@android:drawable/ic_menu_revert" />-->
 
         <Button
             android:id="@+id/btn_logout"
@@ -62,7 +62,7 @@
         android:id="@+id/btnBuy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:text="Buy Now"
         android:fontFamily="sans-serif-black"
         android:backgroundTint="@color/basic_app_color"
@@ -71,7 +71,7 @@
 
     <TextView
         android:id="@+id/textView"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textColor="@color/basic_app_color"
         android:fontFamily="sans-serif-black"
         android:layout_marginTop="80dp"

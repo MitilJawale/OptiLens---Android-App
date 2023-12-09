@@ -33,11 +33,14 @@ class WishListFragment : Fragment() {
 
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +63,9 @@ class WishListFragment : Fragment() {
 
         return view
     }
+
+
+
     private fun getUserRef(): DatabaseReference {
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()

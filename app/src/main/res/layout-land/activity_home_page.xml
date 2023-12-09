@@ -9,12 +9,11 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="40dp"
         android:background="@color/basic_app_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center"
-        app:popupTheme="@style/Theme.AppCompat.DayNight.DarkActionBar">
+        android:gravity="center">
 
         <TextView
             android:id="@+id/tv_toolbar_title"
@@ -66,7 +65,7 @@
     <LinearLayout
         android:id="@+id/bottom_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@color/basic_app_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
