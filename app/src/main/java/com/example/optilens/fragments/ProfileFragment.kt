@@ -56,10 +56,6 @@ class ProfileFragment : Fragment() {
         txtPassword = view.findViewById(R.id.txt_Password)
         database = FirebaseDatabase.getInstance().reference
 
-
-//        previewImage.setImageResource(R.drawable.boy_profile_picture)
-
-        // Load user data and display
         loadUserData()
 
         selectImage.setOnClickListener {

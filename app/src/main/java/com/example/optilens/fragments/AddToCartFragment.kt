@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.ScrollView
 import android.widget.TextView
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.example.optilens.R
+import com.example.optilens.activities.CheckoutActivity
 import com.example.optilens.activities.HomePageActivity
 import com.example.optilens.adapter.ItemInCartAdapter
 import com.example.optilens.dataclass.CartItem
@@ -41,6 +43,7 @@ class AddToCartFragment : Fragment(){
     private lateinit var amount: TextView
     private lateinit var continueShopping:TextView
     private lateinit var sc:ScrollView
+    private lateinit var btn_Checkout : Button
 
 
 
@@ -49,6 +52,8 @@ class AddToCartFragment : Fragment(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+
+
         }
     }
 
@@ -57,6 +62,13 @@ class AddToCartFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_add_to_cart, container, false)
+
+        btn_Checkout = view.findViewById(R.id.btn_PlaceOrder)
+        btn_Checkout.setOnClickListener(){
+            val intent = Intent(activity , CheckoutActivity::class.java)
+            startActivity(intent)
+            //finish()
+        }
 
         recyclerView = view.findViewById(R.id.recyclerViewAddtoCart)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
