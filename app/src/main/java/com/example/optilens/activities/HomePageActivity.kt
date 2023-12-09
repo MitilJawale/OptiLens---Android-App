@@ -3,6 +3,8 @@ package com.example.optilens.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -116,6 +118,24 @@ class HomePageActivity : AppCompatActivity() {
         loadFragment(HomeFragment())
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_orders -> {
+                val intent = Intent(this, YourOrdersActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            // Handle other menu items
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 
 
     private fun loadFragment(fragment: Fragment) {

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bt_white"
+    tools:context=".activities.PaymentPage">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/basic_app_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/toolbar_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="21sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:text="OptiLens"
+            android:fontFamily="sans-serif-medium"/>
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/baseline_logout_24"
+            android:text="Log out"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_gravity="end"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <com.braintreepayments.cardform.view.CardForm
+        android:id="@+id/cardForm"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/light_app_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+    </com.braintreepayments.cardform.view.CardForm>
+    
+    <Button
+        android:id="@+id/btnBuy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Buy Now"
+        android:fontFamily="sans-serif-black"
+        android:backgroundTint="@color/basic_app_color"
+        android:layout_margin="12dp"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:textSize="25dp"
+        android:textColor="@color/basic_app_color"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Payment Details" />
+
+
+
+
+</RelativeLayout>
