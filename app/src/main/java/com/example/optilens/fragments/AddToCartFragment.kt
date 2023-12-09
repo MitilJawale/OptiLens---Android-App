@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +42,7 @@ class AddToCartFragment : Fragment(){
     private lateinit var recyclerView: RecyclerView
     private lateinit var amount: TextView
     private lateinit var continueShopping:TextView
+    private lateinit var sc:ScrollView
     private lateinit var btn_Checkout : Button
 
 
@@ -71,6 +73,7 @@ class AddToCartFragment : Fragment(){
         recyclerView = view.findViewById(R.id.recyclerViewAddtoCart)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         amount =view.findViewById(R.id.tv_Amount)
+        sc = view.findViewById(R.id.sc_cartScrollView)
         continueShopping=view.findViewById(R.id.textViewNoItems)
         continueShopping.setOnClickListener{
             parentFragmentManager.beginTransaction()
@@ -83,7 +86,10 @@ class AddToCartFragment : Fragment(){
         getCartProductIds { cartProductIds ->
             val selectedProducts = getProductsByIds(cartProductIds, productCategory)
             val textViewNoItems = view.findViewById<TextView>(R.id.textViewNoItems)
-
+            if(cartProductIds.isEmpty()) {
+                textViewNoItems.visibility = View.VISIBLE
+                sc.visibility = View.GONE
+            }
             textViewNoItems.visibility = if (cartProductIds.isEmpty()) View.VISIBLE else View.GONE
             val animation = view.findViewById<ImageView>(R.id.iv_animation)
             animation.visibility = if (cartProductIds.isEmpty()) View.VISIBLE else View.GONE
@@ -108,7 +114,9 @@ class AddToCartFragment : Fragment(){
 
             }else{
                 val sumOfPrices = cartPriceList.sum()
-                amount.text=sumOfPrices.toString()
+                val formattedSum = String.format("%.2f", sumOfPrices)
+
+                amount.text=formattedSum
             }
 
         }

@@ -50,19 +50,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:padding="10dp">
+
         <Button
             android:id="@+id/btn_login"
             android:layout_gravity="center"
             android:text="@string/Login"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/basic_app_color"
+            android:layout_margin="5dp"/>
+
         <Button
             android:id="@+id/btn_register"
             android:layout_gravity="center"
             android:text="@string/Register"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/basic_app_color"
+            android:layout_margin="5dp"/>
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 

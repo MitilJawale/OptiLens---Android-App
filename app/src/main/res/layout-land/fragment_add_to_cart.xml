@@ -57,8 +57,8 @@
         app:layout_constraintTop_toBottomOf="@id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/no_items_in_cart_yet"
-        android:textSize="30sp"
+        android:text="No Items In Cart yet. Continue Shopping?"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:fontFamily="cursive"
         android:clickable="true"
@@ -68,11 +68,11 @@
     <ImageView
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNoItems"
+        app:layout_constraintTop_toBottomOf="@id/textViewNoItems"
         android:id="@+id/iv_animation"
         android:src="@drawable/cat"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:visibility="gone"/>
 
 
