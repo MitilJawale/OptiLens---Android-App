@@ -46,6 +46,9 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <com.braintreepayments.cardform.view.CardForm
         android:id="@+id/cardForm"
@@ -57,6 +60,7 @@
         android:layout_height="wrap_content">
         
     </com.braintreepayments.cardform.view.CardForm>
+    </ScrollView>
     
     <Button
         android:id="@+id/btnBuy"
