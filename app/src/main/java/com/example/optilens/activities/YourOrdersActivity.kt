@@ -21,53 +21,7 @@ class YourOrdersActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_your_orders)
         database = FirebaseDatabase.getInstance().getReference("orders")
-        // loadOrders()
-    }
-}
 
-//    private fun loadOrders(){
-//
-//        val currentUser = FirebaseAuth.getInstance().currentUser
-//
-//        if (currentUser != null) {
-//            val userId = currentUser.uid
-//            val userRef = database.child("Users").child(userId)
-//
-//            userRef.addValueEventListener(object : ValueEventListener {
-//                override fun onDataChange(snapshot: DataSnapshot) {
-//
-//
-//
-//
-//                    if (snapshot.exists()) {
-//                        val user = snapshot.getValue(User::class.java)
-//                        user?.let {
-//                            val orderItems = it.orders
-//                            val orderInfo = StringBuilder()
-//                            for (orderItem in orderItems) {
-//                                orderInfo.append(
-//                                    "Product ID: ${or.productId}\n" +
-//                                            "Product Name: ${cartItem.productName}\n" +
-//                                            "Price: ${cartItem.price}\n"
-//                                )
-//                        }
-//
-//                        txtName.text = "Name : "+ user.name
-//                        txtAddress.text = "Address : "+ user.address
-//                        txtEmail.text ="Address : "+ user.email
-//                        txtPhone.text="Phone Number : "+user.phoneNumber
-//                        txtPassword.text="Password : "+user.password
-//
-//                    }
-//                }
-//                override fun onCancelled(databaseError: DatabaseError) {
-//
-//                }
-//
-//                })
-//        }
-//    }
-//}
-//
-//
-//
+    }
+
+}

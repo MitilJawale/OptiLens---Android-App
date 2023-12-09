@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:textSize="21sp"
             android:textColor="@color/white"
-            android:layout_gravity="center"
             android:text="OptiLens"
+            android:clickable="true"
             android:fontFamily="sans-serif-medium"/>
 
         <Button
@@ -61,7 +61,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:textColor="@color/basic_app_color"
-
             android:layout_marginLeft="20dp"
             android:text="Order ID." />
 
@@ -70,7 +69,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-
             android:layout_marginLeft="105dp"
             android:text="Order ID." />
 
