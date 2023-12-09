@@ -8,7 +8,6 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -121,6 +120,8 @@ class HomePageActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
+
+
         return true
     }
 
@@ -128,6 +129,11 @@ class HomePageActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.menu_orders -> {
                 val intent = Intent(this, YourOrdersActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.menu_item2 -> {
+                val intent = Intent(this, StoreLocationActivity::class.java)
                 startActivity(intent)
                 true
             }

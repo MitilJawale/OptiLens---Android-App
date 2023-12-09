@@ -33,4 +33,7 @@
     <string name="Your_cart">Your Cart</string>
     <string name="no_items_in_cart_yet">No Items In Cart yet\nContinue Shopping?</string>
     <string name="try_on">Try On</string>
+
+
+    <string name="google_map_api_key">AIzaSyDMu9XNAv4q7sw2nlyKpmD0j0pStqPcLhg</string>
 </resources>
