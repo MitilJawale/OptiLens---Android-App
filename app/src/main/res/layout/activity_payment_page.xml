@@ -48,20 +48,21 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="70dp">
 
-    <com.braintreepayments.cardform.view.CardForm
-        android:id="@+id/cardForm"
-        android:layout_marginTop="120dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp"
-        android:backgroundTint="@color/light_app_color"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
-    </com.braintreepayments.cardform.view.CardForm>
+        <com.braintreepayments.cardform.view.CardForm
+            android:id="@+id/cardForm"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@color/light_app_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.braintreepayments.cardform.view.CardForm>
     </ScrollView>
-    
+
     <Button
         android:id="@+id/btnBuy"
         android:layout_width="match_parent"
