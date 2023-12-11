@@ -58,9 +58,15 @@ class CheckoutActivity : AppCompatActivity() {
 
         btn_pay = findViewById(R.id.btnpay)
         btn_pay.setOnClickListener() {
-            val intent = Intent(this, PaymentPage::class.java)
-            startActivity(intent)
-            finish()
+            if (validateFields()) {
+                val intent = Intent(this, PaymentPage::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "Please Fill All Fields", Toast.LENGTH_SHORT).show()
+            }
+
+
         }
 
         txtAddress1 = findViewById(R.id.et_addressLine1)
@@ -132,6 +138,21 @@ class CheckoutActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please provide the required permission", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    private fun validateFields(): Boolean {
+        val firstName = txtFName.text.toString()
+        val lastName = txtLName.text.toString()
+        val email = txtEmail.text.toString()
+        val phoneNumber = txtNumber.text.toString()
+
+        // Check if any of the fields is empty
+        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || phoneNumber.isEmpty()) {
+            return false
+        }
+
+        // Add additional validation checks if needed, e.g., for email format or phone number format
+
+        return true
     }
 }
 

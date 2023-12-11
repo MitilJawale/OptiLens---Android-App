@@ -33,7 +33,7 @@ class ProfileFragment : Fragment() {
     private lateinit var txtAddress: TextView
     private lateinit var txtEmail: TextView
     private lateinit var txtPhone: TextView
-    private lateinit var txtPassword: TextView
+//    private lateinit var txtPassword: TextView
 
 
 
@@ -53,7 +53,7 @@ class ProfileFragment : Fragment() {
         txtAddress = view.findViewById(R.id.txt_Address)
         txtEmail = view.findViewById(R.id.txt_Email)
         txtPhone = view.findViewById(R.id.txt_Number)
-        txtPassword = view.findViewById(R.id.txt_Password)
+//        txtPassword = view.findViewById(R.id.txt_Password)
         database = FirebaseDatabase.getInstance().reference
 
         loadUserData()
@@ -84,7 +84,7 @@ class ProfileFragment : Fragment() {
                                 txtAddress.text = "Address : "+ user.address
                                 txtEmail.text ="Address : "+ user.email
                                 txtPhone.text="Phone Number : "+user.phoneNumber
-                                txtPassword.text="Password : "+user.password
+//                                txtPassword.text="Password : "+user.password
                                 if (user.profilePicture != " ") {
                                     // Load and display profile picture using Glide
                                     Glide.with(requireContext())
@@ -113,26 +113,23 @@ class ProfileFragment : Fragment() {
         startActivityForResult(intent, PICK_IMAGE_REQUEST)
     }
 
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
             try {
                 val imageUri: Uri = data.data!!
-
                 Log.d("ImageUri", imageUri.toString())
-
                 previewImage.setImageURI(imageUri)
                 uploadImageToFirebaseStorage(imageUri)
             } catch (e: Exception) {
                 Log.e("ImageSelectionError", "Error handling selected image", e)
-                // Handle the error appropriately, e.g., show a toast or log additional details
             }
         } else {
             Log.e("ImageSelectionError", "Image selection failed. requestCode: $requestCode, resultCode: $resultCode")
-            // Handle the error appropriately, e.g., show a toast or log additional details
         }
     }
+
 
 
 

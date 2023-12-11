@@ -45,7 +45,7 @@ class StoreLocationActivity : AppCompatActivity() , OnMapReadyCallback {
         val buffalo = LatLng(42.81, -78.87)
         mGoogleMap!!.addMarker(MarkerOptions().position(buffalo).title("Optilens Buffalo"))
         val mountainview = LatLng(37.38, -122.08)
-        mGoogleMap!!.addMarker(MarkerOptions().position(mountainview).title("Optilens Headuarters"))
+        mGoogleMap!!.addMarker(MarkerOptions().position(mountainview).title("Optilens Headquarters"))
         val albany = LatLng(42.61, -73.75)
         mGoogleMap!!.addMarker(MarkerOptions().position(albany).title("Optilens Albany"))
         val dallas = LatLng(32.77, -96.79)

@@ -17,10 +17,11 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.UUID
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class OrderActivity : AppCompatActivity() {
 
-    //private lateinit var binding : ActivityOrderActivityBinding
     private lateinit var databaseReference: DatabaseReference
     private lateinit var database: DatabaseReference
 
@@ -75,6 +76,9 @@ class OrderActivity : AppCompatActivity() {
         if (currentUser != null) {
             val userId = currentUser.uid
             val userRef = databaseReference.child("Users").child(userId)
+            val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            val currentDate = sdf.format(Date())
+            val orderDateTimestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(currentDate).time
 
             userRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -107,7 +111,7 @@ class OrderActivity : AppCompatActivity() {
                             orderId = orderId,
                             products = it.cart,
                             totalAmount = totalCartValue,
-                            orderDate = System.currentTimeMillis(), // Timestamp of the order date
+                            orderDate = orderDateTimestamp, // Timestamp of the order date
                             status = "Pending" // Set the order status (e.g., "Pending")
                         )
 

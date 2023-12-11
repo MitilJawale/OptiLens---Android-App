@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ScrollView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -65,9 +66,8 @@ class AddToCartFragment : Fragment(){
 
         btn_Checkout = view.findViewById(R.id.btn_PlaceOrder)
         btn_Checkout.setOnClickListener(){
-            val intent = Intent(activity , CheckoutActivity::class.java)
-            startActivity(intent)
-            //finish()
+                    val intent = Intent(activity , CheckoutActivity::class.java)
+                    startActivity(intent)
         }
 
         recyclerView = view.findViewById(R.id.recyclerViewAddtoCart)

@@ -127,11 +127,11 @@ class HomePageActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_orders -> {
-                val intent = Intent(this, YourOrdersActivity::class.java)
-                startActivity(intent)
-                true
-            }
+//            R.id.menu_orders -> {
+//                val intent = Intent(this, YourOrdersActivity::class.java)
+//                startActivity(intent)
+//                true
+//            }
             R.id.menu_item2 -> {
                 val intent = Intent(this, StoreLocationActivity::class.java)
                 startActivity(intent)

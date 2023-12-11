@@ -44,6 +44,7 @@
             android:id="@+id/btn_selectImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/basic_app_color"
             android:text="@string/UploadPicture"
             android:layout_gravity="center"
             />
@@ -79,12 +80,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:id="@+id/txt_Email"/>
-        <TextView
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:id="@+id/txt_Password"/>
+
 
 
 
