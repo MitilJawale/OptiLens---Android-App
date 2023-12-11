@@ -43,9 +43,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
+
     implementation 'com.google.firebase:firebase-auth:22.3.0'
     implementation 'com.google.firebase:firebase-database:20.3.0'
-    implementation 'com.google.firebase:firebase-firestore:24.9.1'
     implementation 'com.google.firebase:firebase-storage:20.3.0'
 
 
@@ -68,10 +68,17 @@ dependencies {
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.28'
 
 
+
+
+
+
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.braintreepayments:card-form:5.4.0'
     implementation'com.google.android.gms:play-services-location:21.0.1'
     implementation 'com.google.android.gms:play-services-maps:18.2.0'
+
+
+
     implementation 'com.github.Marvel999:Android-Loading-Animation:1.0.0'
 
 
